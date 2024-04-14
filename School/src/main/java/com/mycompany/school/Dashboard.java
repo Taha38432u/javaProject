@@ -40,13 +40,13 @@ public class Dashboard extends javax.swing.JFrame {
         jButton14 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        clsBtn = new javax.swing.JButton();
+        adminBtn = new javax.swing.JButton();
+        subBtn = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        stdBtn = new javax.swing.JButton();
+        resultBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(500, 0), new java.awt.Dimension(500, 0), new java.awt.Dimension(500, 32767));
         jPanel1 = new javax.swing.JPanel();
@@ -180,23 +180,28 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\com\\mycompany\\Images\\report-card.png"));
         BackgroundPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 260, 130, 130));
 
-        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
-        jButton1.setText("Classes");
-        jButton1.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 4, true)));
-        BackgroundPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, 120, 40));
+        clsBtn.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        clsBtn.setText("Classes");
+        clsBtn.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 4, true)));
+        BackgroundPanel.add(clsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, 120, 40));
 
-        jButton2.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
-        jButton2.setText("Admin");
-        jButton2.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 4, true)));
-        jButton2.setPreferredSize(new java.awt.Dimension(63, 26));
-        BackgroundPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 380, 110, 40));
+        adminBtn.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        adminBtn.setText("Admin");
+        adminBtn.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 4, true)));
+        adminBtn.setPreferredSize(new java.awt.Dimension(63, 26));
+        BackgroundPanel.add(adminBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 380, 110, 40));
 
-        jButton3.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
-        jButton3.setText("Subjects");
-        jButton3.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 4, true)));
-        jButton3.setName(""); // NOI18N
-        jButton3.setPreferredSize(new java.awt.Dimension(63, 26));
-        BackgroundPanel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 380, 140, 40));
+        subBtn.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        subBtn.setText("Subjects");
+        subBtn.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 4, true)));
+        subBtn.setName(""); // NOI18N
+        subBtn.setPreferredSize(new java.awt.Dimension(63, 26));
+        subBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                subBtnMouseClicked(evt);
+            }
+        });
+        BackgroundPanel.add(subBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 380, 140, 40));
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\com\\mycompany\\Images\\Subjects.png"));
@@ -206,18 +211,23 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\com\\mycompany\\Images\\Admin.png"));
         BackgroundPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, 160, 130));
 
-        jButton5.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
-        jButton5.setText("Students");
-        jButton5.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 4, true)));
-        jButton5.setPreferredSize(new java.awt.Dimension(63, 26));
-        BackgroundPanel.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, 110, 40));
+        stdBtn.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        stdBtn.setText("Students");
+        stdBtn.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 4, true)));
+        stdBtn.setPreferredSize(new java.awt.Dimension(63, 26));
+        stdBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                stdBtnMouseClicked(evt);
+            }
+        });
+        BackgroundPanel.add(stdBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, 110, 40));
 
-        jButton6.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
-        jButton6.setText("Report Card");
-        jButton6.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 4, true)));
-        jButton6.setName(""); // NOI18N
-        jButton6.setPreferredSize(new java.awt.Dimension(63, 26));
-        BackgroundPanel.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 380, 140, 40));
+        resultBtn.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        resultBtn.setText("Report Card");
+        resultBtn.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 4, true)));
+        resultBtn.setName(""); // NOI18N
+        resultBtn.setPreferredSize(new java.awt.Dimension(63, 26));
+        BackgroundPanel.add(resultBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 380, 140, 40));
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -355,13 +365,13 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void studentMainBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentMainBtnMouseClicked
-        studentsFrame stdFrame =  new studentsFrame();
+        studentsFrame stdFrame = new studentsFrame();
         stdFrame.show();
     }//GEN-LAST:event_studentMainBtnMouseClicked
 
     private void teacherMainBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_teacherMainBtnMouseClicked
-       teacherFrame tFrame = new teacherFrame();
-       tFrame.show();
+        teacherFrame tFrame = new teacherFrame();
+        tFrame.show();
     }//GEN-LAST:event_teacherMainBtnMouseClicked
 
     private void attendacneMainButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_attendacneMainButtonMouseClicked
@@ -378,6 +388,16 @@ public class Dashboard extends javax.swing.JFrame {
         subjectFrame subFrame = new subjectFrame();
         subFrame.show();
     }//GEN-LAST:event_jButton9MouseClicked
+
+    private void stdBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stdBtnMouseClicked
+        studentsFrame stdFrame = new studentsFrame();
+        stdFrame.show();
+    }//GEN-LAST:event_stdBtnMouseClicked
+
+    private void subBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_subBtnMouseClicked
+        subjectFrame subFrame = new subjectFrame();
+        subFrame.show();
+    }//GEN-LAST:event_subBtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -419,17 +439,14 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel TitleLabel;
     private javax.swing.JPanel TitlePanel;
     private javax.swing.JPanel ToolBarPanel;
+    private javax.swing.JButton adminBtn;
     private javax.swing.JButton attendacneMainButton;
+    private javax.swing.JButton clsBtn;
     private javax.swing.JButton feeMainBtn;
     private javax.swing.Box.Filler filler1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
@@ -448,7 +465,10 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JButton resultBtn;
+    private javax.swing.JButton stdBtn;
     private javax.swing.JButton studentMainBtn;
+    private javax.swing.JButton subBtn;
     private javax.swing.JButton teacherMainBtn;
     // End of variables declaration//GEN-END:variables
 }
