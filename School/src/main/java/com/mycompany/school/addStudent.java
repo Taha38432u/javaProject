@@ -4,7 +4,12 @@
  */
 package com.mycompany.school;
 
+import static com.mycompany.school.connectionCLass.con;
+import java.sql.DriverManager;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -43,8 +48,8 @@ public class addStudent extends javax.swing.JFrame {
         dateOfBirthTxt = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        maleBtn = new javax.swing.JRadioButton();
+        femaleBtn = new javax.swing.JRadioButton();
         jLabel8 = new javax.swing.JLabel();
         currentAddressTxt = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -58,7 +63,7 @@ public class addStudent extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         rollNoStd = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        classOption = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
@@ -72,7 +77,7 @@ public class addStudent extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         contactNo2 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        insertStdRecord = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -143,12 +148,12 @@ public class addStudent extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(33, 37, 41));
         jLabel7.setText("Gender");
 
-        jRadioButton1.setText("Male");
+        maleBtn.setText("Male");
 
-        jRadioButton2.setText("Female");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        femaleBtn.setText("Female");
+        femaleBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                femaleBtnActionPerformed(evt);
             }
         });
 
@@ -199,9 +204,9 @@ public class addStudent extends javax.swing.JFrame {
                             .addComponent(jLabel9)
                             .addComponent(jLabel7)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(maleBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(femaleBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(dateOfBirthTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(31, 31, 31)
@@ -248,8 +253,8 @@ public class addStudent extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(maleBtn)
+                    .addComponent(femaleBtn))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
@@ -279,7 +284,7 @@ public class addStudent extends javax.swing.JFrame {
 
         rollNoStd.setBackground(new java.awt.Color(248, 249, 250));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kg", "Nursery", "Prep", "Class 1", "Class 2", "Class 3", "Class 4", "Class 5", "Class 6", "Class 7", "Class 8", "Class 9", "Class 10" }));
+        classOption.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kg", "Nursery", "Prep", "Class 1", "Class 2", "Class 3", "Class 4", "Class 5", "Class 6", "Class 7", "Class 8", "Class 9", "Class 10" }));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -295,7 +300,7 @@ public class addStudent extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel13)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(classOption, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -309,7 +314,7 @@ public class addStudent extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(jLabel13)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(classOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dateOfAdmissionTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -422,10 +427,15 @@ public class addStudent extends javax.swing.JFrame {
         jButton4.setText("Cancel");
         jButton4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(28, 126, 214), 3, true));
 
-        jButton3.setBackground(new java.awt.Color(28, 126, 214));
-        jButton3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton3.setText("Save");
-        jButton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(28, 126, 214), 3, true));
+        insertStdRecord.setBackground(new java.awt.Color(28, 126, 214));
+        insertStdRecord.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        insertStdRecord.setText("Save");
+        insertStdRecord.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(28, 126, 214), 3, true));
+        insertStdRecord.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                insertStdRecordMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -448,7 +458,7 @@ public class addStudent extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(insertStdRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -470,7 +480,7 @@ public class addStudent extends javax.swing.JFrame {
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(insertStdRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(55, 55, 55))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -496,13 +506,58 @@ public class addStudent extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void femaleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_femaleBtnActionPerformed
 
     private void firstNameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_firstNameTxtActionPerformed
+
+    private void insertStdRecordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_insertStdRecordMouseClicked
+
+        LocalDate currentDate = LocalDate.now();
+        allStudentFunctionClass obj = new allStudentFunctionClass();
+
+        String dateString = dateOfBirthTxt.getText(); // Format: YYYY-MM-DD
+
+        // Define the format of the string
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        // Parse the string into a LocalDate object
+        LocalDate date = LocalDate.parse(dateString, formatter);
+
+        // Print the LocalDate object
+        System.out.println("Parsed LocalDate: " + date);
+
+        obj.setStudentFirstName(firstNameTxt.getText());
+        obj.setStudentLastName(lastNameTxt.getText());
+        obj.setDateOfBirth(date);
+        obj.setCity(cityTxt.getText());
+        obj.setCurrentAddress(currentAddressTxt.getText());
+        obj.setPermanentAddress(permanentAddressTxt.getText());
+        
+        String selectedValue = "";
+        if (maleBtn.isSelected()) {
+            selectedValue = maleBtn.getText();
+        } else if (femaleBtn.isSelected()) {
+            selectedValue = femaleBtn.getText();
+        }
+        obj.setGender(selectedValue);
+        
+        obj.setDateOfAdmission(currentDate);
+        String cOption = (String) classOption.getSelectedItem();
+        obj.setStudentClass(cOption);
+        int rollNo = Integer.parseInt(rollNoStd.getText());
+        obj.setRollNo(rollNo);
+        obj.setParentFirstName(parentFirstName.getText());
+        obj.setParentLastName(parentLastName.getText());
+        obj.setProfession(professionTxt.getText());
+        obj.setContactNo1(contactNo1.getText());
+        obj.setContactNo2(contactNo2.getText());
+        obj.insertStudent(obj);
+
+    }//GEN-LAST:event_insertStdRecordMouseClicked
 
     /**
      * @param args the command line arguments
@@ -541,16 +596,17 @@ public class addStudent extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cityTxt;
+    private javax.swing.JComboBox<String> classOption;
     private javax.swing.JTextField contactNo1;
     private javax.swing.JTextField contactNo2;
     private javax.swing.JTextField currentAddressTxt;
     private javax.swing.JTextField dateOfAdmissionTxt;
     private javax.swing.JTextField dateOfBirthTxt;
+    private javax.swing.JRadioButton femaleBtn;
     private javax.swing.JTextField firstNameTxt;
+    private javax.swing.JButton insertStdRecord;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -576,9 +632,8 @@ public class addStudent extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextField lastNameTxt;
+    private javax.swing.JRadioButton maleBtn;
     private javax.swing.JTextField parentFirstName;
     private javax.swing.JTextField parentLastName;
     private javax.swing.JTextField permanentAddressTxt;
