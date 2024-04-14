@@ -4,6 +4,8 @@
  */
 package com.mycompany.school;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Taha Rasheed
@@ -15,6 +17,7 @@ public class studentsFrame extends javax.swing.JFrame {
      */
     public studentsFrame() {
         initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**

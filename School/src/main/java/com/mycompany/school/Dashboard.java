@@ -96,6 +96,11 @@ public class Dashboard extends javax.swing.JFrame {
 
         feeMainBtn.setBackground(new java.awt.Color(25, 118, 211));
         feeMainBtn.setText("Fee");
+        feeMainBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                feeMainBtnMouseClicked(evt);
+            }
+        });
         feeMainBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 feeMainBtnActionPerformed(evt);
@@ -105,7 +110,12 @@ public class Dashboard extends javax.swing.JFrame {
         feeMainBtn.setBounds(30, 500, 100, 40);
 
         jButton9.setBackground(new java.awt.Color(0, 102, 204));
-        jButton9.setText("Dashboard");
+        jButton9.setText("Subjects");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -116,6 +126,11 @@ public class Dashboard extends javax.swing.JFrame {
 
         teacherMainBtn.setBackground(new java.awt.Color(25, 118, 211));
         teacherMainBtn.setText("Teachers");
+        teacherMainBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                teacherMainBtnMouseClicked(evt);
+            }
+        });
         teacherMainBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 teacherMainBtnActionPerformed(evt);
@@ -136,6 +151,11 @@ public class Dashboard extends javax.swing.JFrame {
 
         attendacneMainButton.setBackground(new java.awt.Color(25, 118, 211));
         attendacneMainButton.setText("Attendance");
+        attendacneMainButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                attendacneMainButtonMouseClicked(evt);
+            }
+        });
         ToolBarPanel.add(attendacneMainButton);
         attendacneMainButton.setBounds(30, 430, 100, 40);
 
@@ -150,7 +170,7 @@ public class Dashboard extends javax.swing.JFrame {
         ToolBarPanel.add(jButton14);
         jButton14.setBounds(30, 160, 100, 20);
 
-        BackgroundPanel.add(ToolBarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 160, 560));
+        BackgroundPanel.add(ToolBarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 160, 570));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\com\\mycompany\\Images\\Classes.png"));
@@ -314,7 +334,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addComponent(BackgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        setSize(new java.awt.Dimension(1085, 623));
+        setSize(new java.awt.Dimension(1085, 658));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -338,6 +358,26 @@ public class Dashboard extends javax.swing.JFrame {
         studentsFrame stdFrame =  new studentsFrame();
         stdFrame.show();
     }//GEN-LAST:event_studentMainBtnMouseClicked
+
+    private void teacherMainBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_teacherMainBtnMouseClicked
+       teacherFrame tFrame = new teacherFrame();
+       tFrame.show();
+    }//GEN-LAST:event_teacherMainBtnMouseClicked
+
+    private void attendacneMainButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_attendacneMainButtonMouseClicked
+        attendanceFrame attFrame = new attendanceFrame();
+        attFrame.show();
+    }//GEN-LAST:event_attendacneMainButtonMouseClicked
+
+    private void feeMainBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_feeMainBtnMouseClicked
+        feeFrame feeFram = new feeFrame();
+        feeFram.show();
+    }//GEN-LAST:event_feeMainBtnMouseClicked
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        subjectFrame subFrame = new subjectFrame();
+        subFrame.show();
+    }//GEN-LAST:event_jButton9MouseClicked
 
     /**
      * @param args the command line arguments
