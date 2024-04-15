@@ -1,4 +1,5 @@
 com\mycompany\school\studentsFrame$7.class
+com\mycompany\school\allStudentFunctionClass$1.class
 com\mycompany\school\addStudent$3.class
 com\mycompany\school\editSubjectFrame.class
 com\mycompany\school\feeFrame.class
@@ -70,6 +71,7 @@ com\mycompany\school\editFeeFrame$5.class
 com\mycompany\school\addSubjectsFrame$15.class
 com\mycompany\school\addSubjectsFrame$5.class
 com\mycompany\school\feeFrame$1.class
+com\mycompany\school\allStudentFunctionClass$2.class
 com\mycompany\school\addSubjectsFrame.class
 com\mycompany\school\studentsFrame$8.class
 com\mycompany\school\teacherFrame.class

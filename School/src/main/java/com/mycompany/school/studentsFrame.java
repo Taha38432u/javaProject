@@ -137,7 +137,7 @@ public class studentsFrame extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(28, 126, 214));
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton2.setText("Dashboard");
+        jButton2.setText("Parent Info");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -216,8 +216,9 @@ public class studentsFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        viewInfoStudent info = new viewInfoStudent();
-        info.show();// TODO add your handling code here:
+//        viewInfoStudent info = new viewInfoStudent();
+//        info.show();// TODO add your handling code here:
+        allStudentFunctionClass.viewStudentsByClass();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void addStudentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStudentBtnActionPerformed

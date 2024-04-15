@@ -4,11 +4,24 @@
  */
 package com.mycompany.school;
 
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -219,7 +232,6 @@ public class allStudentFunctionClass {
             ps.setInt(16, oldRollNo); // Assuming rollNo uniquely identifies a student
             ps.setString(17, student.getStudentClass()); // Assuming rollNo uniquely identifies a student
 
-
             // Execute the update query
             int updatedRows = ps.executeUpdate();
 
@@ -233,7 +245,7 @@ public class allStudentFunctionClass {
         }
     }
 
-    public static allStudentFunctionClass getStudentByRollNo(int rollNo, String className ) {
+    public static allStudentFunctionClass getStudentByRollNo(int rollNo, String className) {
         allStudentFunctionClass student = null;
         try {
             Connection con = ConnectionClass.db();
@@ -270,4 +282,152 @@ public class allStudentFunctionClass {
         }
         return student;
     }
+
+    public static void viewStudentsByClass() {
+        JFrame frame = new JFrame("View Students by Class");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setSize(800, 600);
+        frame.setLocationRelativeTo(null);
+
+        JPanel panel = new JPanel(new BorderLayout());
+        frame.add(panel);
+
+        // ComboBox to select class
+        JComboBox<String> classComboBox = new JComboBox<>(new String[]{
+            "KG", "Nursery", "Prep",
+            "Class 1", "Class 2", "Class 3", "Class 4", "Class 5",
+            "Class 6", "Class 7", "Class 8", "Class 9", "Class 10"});
+        classComboBox.setSelectedIndex(0); // Set default selection
+        panel.add(classComboBox, BorderLayout.NORTH);
+
+        JPanel optionsPanel = new JPanel(new GridLayout(0, 1));
+        panel.add(optionsPanel, BorderLayout.WEST);
+
+        // Create checkboxes for each column
+        JCheckBox[] checkboxes = new JCheckBox[11];
+        checkboxes[0] = new JCheckBox("Id", true);
+        checkboxes[1] = new JCheckBox("Roll No", true);
+        checkboxes[2] = new JCheckBox("First Name", true);
+        checkboxes[3] = new JCheckBox("Last Name", true);
+        checkboxes[4] = new JCheckBox("Date of Birth", true);
+        checkboxes[5] = new JCheckBox("City", true);
+        checkboxes[6] = new JCheckBox("Gender", true);
+        checkboxes[7] = new JCheckBox("Date of Admission", true);
+        checkboxes[8] = new JCheckBox("Contact No 1", true);
+        checkboxes[9] = new JCheckBox("Contact No 2", true);
+        checkboxes[10] = new JCheckBox("Current Address", true);
+
+        for (JCheckBox checkbox : checkboxes) {
+            optionsPanel.add(checkbox);
+        }
+
+        DefaultTableModel model = new DefaultTableModel() {
+            // Override getColumnClass to make sure that date columns are rendered as LocalDate
+            @Override
+            public Class<?> getColumnClass(int columnIndex) {
+                if (columnIndex == 4 || columnIndex == 7) { // Assuming dateOfBirth and dateOfAdmission are at index 4 and 7 respectively
+                    return LocalDate.class;
+                }
+                return super.getColumnClass(columnIndex);
+            }
+        };
+        JTable table = new JTable(model);
+        table.setRowHeight(30); // Set row height
+        table.getTableHeader().setFont(table.getTableHeader().getFont().deriveFont(Font.BOLD)); // Make column headings bold
+        JScrollPane scrollPane = new JScrollPane(table);
+        table.setFillsViewportHeight(true); // Make table fill the viewport height
+        panel.add(scrollPane, BorderLayout.CENTER);
+
+        classComboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selectedClass = (String) classComboBox.getSelectedItem();
+                model.setRowCount(0); // Clear existing rows
+
+                try {
+                    Connection con = ConnectionClass.db();
+                    String query = "SELECT * FROM studentInfo WHERE class = ?";
+                    PreparedStatement ps = con.prepareStatement(query);
+                    ps.setString(1, selectedClass);
+                    ResultSet rs = ps.executeQuery();
+
+                    // Clear all columns
+                    model.setColumnCount(0);
+
+                    // Add selected column headings to the model
+                    for (int i = 0; i < checkboxes.length; i++) {
+                        if (checkboxes[i].isSelected()) {
+                            switch (i) {
+                                case 0 ->
+                                    model.addColumn("Id");
+                                case 1 ->
+                                    model.addColumn("Roll No");
+                                case 2 ->
+                                    model.addColumn("First Name");
+                                case 3 ->
+                                    model.addColumn("Last Name");
+                                case 4 ->
+                                    model.addColumn("Date of Birth");
+                                case 5 ->
+                                    model.addColumn("City");
+                                case 6 ->
+                                    model.addColumn("Gender");
+                                case 7 ->
+                                    model.addColumn("Date of Admission");
+                                case 8 ->
+                                    model.addColumn("Contact No 1");
+                                case 9 ->
+                                    model.addColumn("Contact No 2");
+                                case 10 ->
+                                    model.addColumn("Current Address");
+                            }
+                        }
+                    }
+
+                    // Populate the table with data
+                    while (rs.next()) {
+                        Object[] row = new Object[model.getColumnCount()];
+                        for (int i = 0; i < model.getColumnCount(); i++) {
+                            String columnName = model.getColumnName(i);
+                            switch (columnName) {
+                                case "Id" ->
+                                    row[i] = rs.getInt("Id");
+                                case "Roll No" ->
+                                    row[i] = rs.getInt("rollNo");
+                                case "First Name" ->
+                                    row[i] = rs.getString("studentFirstName");
+                                case "Last Name" ->
+                                    row[i] = rs.getString("studentLastName");
+                                case "Date of Birth" ->
+                                    row[i] = rs.getDate("dateOfBirth").toLocalDate();
+                                case "City" ->
+                                    row[i] = rs.getString("City");
+                                case "Gender" ->
+                                    row[i] = rs.getString("gender");
+                                case "Date of Admission" ->
+                                    row[i] = rs.getDate("dateOfAdmission").toLocalDate();
+                                case "Contact No 1" ->
+                                    row[i] = rs.getString("contactNo1");
+                                case "Contact No 2" ->
+                                    row[i] = rs.getString("contactNo2");
+                                case "Current Address" ->
+                                    row[i] = rs.getString("currentAddress");
+                            }
+                        }
+                        model.addRow(row);
+                    }
+
+                    rs.close();
+                    ps.close();
+                    con.close();
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+
+            }
+        });
+
+        frame.setVisible(true);
+    }
+
 }
