@@ -351,8 +351,7 @@ public class addSubjectsFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_subjectNameTxtActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        viewInfoStudent info = new viewInfoStudent();
-        info.show();// TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void subjectNameTxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subjectNameTxt1ActionPerformed

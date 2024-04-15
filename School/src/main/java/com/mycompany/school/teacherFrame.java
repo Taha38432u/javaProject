@@ -74,6 +74,11 @@ public class teacherFrame extends javax.swing.JFrame {
         viewInfoBtn2.setForeground(new java.awt.Color(33, 37, 41));
         viewInfoBtn2.setText("View Info");
         viewInfoBtn2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(28, 126, 214), 3, true));
+        viewInfoBtn2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                viewInfoBtn2MouseClicked(evt);
+            }
+        });
         viewInfoBtn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewInfoBtn2ActionPerformed(evt);
@@ -190,8 +195,7 @@ public class teacherFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewInfoBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewInfoBtn2ActionPerformed
-        viewInfoTeacher viewInfo = new viewInfoTeacher();
-        viewInfo.show();
+       
     }//GEN-LAST:event_viewInfoBtn2ActionPerformed
 
     private void addTeacherBtn2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addTeacherBtn2MouseClicked
@@ -215,6 +219,10 @@ public class teacherFrame extends javax.swing.JFrame {
     private void deleteTeacherBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteTeacherBtn2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteTeacherBtn2ActionPerformed
+
+    private void viewInfoBtn2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewInfoBtn2MouseClicked
+        teacherFunctionsClass.viewTeachersByAttributes();
+    }//GEN-LAST:event_viewInfoBtn2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -252,28 +260,14 @@ public class teacherFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addTeacherBtn;
-    private javax.swing.JButton addTeacherBtn1;
     private javax.swing.JButton addTeacherBtn2;
-    private javax.swing.JButton deleteTeacherBtn;
-    private javax.swing.JButton deleteTeacherBtn1;
     private javax.swing.JButton deleteTeacherBtn2;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JButton updateTeacherBtn;
-    private javax.swing.JButton updateTeacherBtn1;
     private javax.swing.JButton updateTeacherBtn2;
-    private javax.swing.JButton viewInfoBtn;
-    private javax.swing.JButton viewInfoBtn1;
     private javax.swing.JButton viewInfoBtn2;
     // End of variables declaration//GEN-END:variables
 }

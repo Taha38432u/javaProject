@@ -4,7 +4,10 @@
  */
 package com.mycompany.school;
 
+import java.time.LocalDate;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -364,6 +367,11 @@ public class updateTeacher extends javax.swing.JFrame {
         updInfoBtn.setForeground(new java.awt.Color(33, 37, 41));
         updInfoBtn.setText("Update ");
         updInfoBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(28, 126, 214), 3, true));
+        updInfoBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updInfoBtnMouseClicked(evt);
+            }
+        });
         updInfoBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updInfoBtnActionPerformed(evt);
@@ -442,6 +450,11 @@ public class updateTeacher extends javax.swing.JFrame {
         searchTeacherInfo.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         searchTeacherInfo.setForeground(new java.awt.Color(33, 37, 41));
         searchTeacherInfo.setText("Search Information");
+        searchTeacherInfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchTeacherInfoMouseClicked(evt);
+            }
+        });
         searchTeacherInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchTeacherInfoActionPerformed(evt);
@@ -505,6 +518,61 @@ public class updateTeacher extends javax.swing.JFrame {
     private void updEmpCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updEmpCodeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_updEmpCodeActionPerformed
+
+    private void searchTeacherInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchTeacherInfoMouseClicked
+        int employeeId = Integer.parseInt(getEmpCode.getText()); // Assuming getEmployeeId is a JTextField
+        teacherFunctionsClass teacher = teacherFunctionsClass.getTeacherByEmployeeId(employeeId);
+        try {
+            if (teacher != null) {
+                updFirstName.setText(teacher.getFirstName());
+                updLastName.setText(teacher.getLastName());
+                updDateOfBirth.setText(teacher.getDateOfBirth().toString());
+                updCity.setText(teacher.getCity());
+                updCurrentAddress.setText(teacher.getCurrentAddress());
+                // Assuming gender is represented as a string (e.g., "Male" or "Female")
+                updContactNo.setText(teacher.getContactNo());
+                updDateOfJoining.setText(teacher.getDateOfJoining().toString());
+                updCurrentPosition.setText(teacher.getCurrentPosition());
+                updEmpCode.setText(String.valueOf(teacher.getEmployeeId()));
+            } else {
+                JOptionPane.showMessageDialog(null, "No teacher found with the specified employee ID");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }//GEN-LAST:event_searchTeacherInfoMouseClicked
+
+    private void updInfoBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updInfoBtnMouseClicked
+        teacherFunctionsClass obj = new teacherFunctionsClass();
+
+        String dateString = updDateOfBirth.getText(); // Format: YYYY-MM-DD
+
+// Define the format of the string
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+// Parse the string into a LocalDate object
+        LocalDate dateOfBirth = LocalDate.parse(dateString, formatter);
+
+        dateString = updDateOfJoining.getText();
+        LocalDate dateOfJoining = LocalDate.parse(dateString, formatter);
+        int oldEmployeeId = Integer.parseInt(getEmpCode.getText());
+
+        obj.setFirstName(updFirstName.getText());
+        obj.setLastName(updLastName.getText());
+        obj.setDateOfBirth(dateOfBirth);
+        obj.setCity(updCity.getText());
+        obj.setCurrentAddress(updCurrentAddress.getText());
+        obj.setGender(jRadioButton1.isSelected() ? "Male" : "Female");
+        obj.setContactNo(updContactNo.getText());
+        obj.setDateOfJoining(dateOfJoining);
+        obj.setCurrentPosition(updCurrentPosition.getText());
+        int empCode = Integer.parseInt(updEmpCode.getText());
+        obj.setEmployeeId(empCode); // Assuming this is the old employee ID
+
+        obj.updateTeacher(obj, oldEmployeeId); // Assuming the old employee ID uniquely identifies a teacher
+
+    }//GEN-LAST:event_updInfoBtnMouseClicked
 
     /**
      * @param args the command line arguments

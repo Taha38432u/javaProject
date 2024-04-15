@@ -4,6 +4,8 @@
  */
 package com.mycompany.school;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JFrame;
 
 /**
@@ -43,13 +45,13 @@ public class addTeacher extends javax.swing.JFrame {
         dateOfBirth = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        maleBtn = new javax.swing.JRadioButton();
+        femaleBtn = new javax.swing.JRadioButton();
         jLabel8 = new javax.swing.JLabel();
         currentAddress = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         city = new javax.swing.JTextField();
-        contactNumber = new javax.swing.JTextField();
+        contactNo = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -59,7 +61,7 @@ public class addTeacher extends javax.swing.JFrame {
         currentPosition = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         employeeId = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        saveBtn = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -130,12 +132,12 @@ public class addTeacher extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(33, 37, 41));
         jLabel7.setText("Gender");
 
-        jRadioButton1.setText("Male");
+        maleBtn.setText("Male");
 
-        jRadioButton2.setText("Female");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        femaleBtn.setText("Female");
+        femaleBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                femaleBtnActionPerformed(evt);
             }
         });
 
@@ -151,7 +153,7 @@ public class addTeacher extends javax.swing.JFrame {
 
         city.setBackground(new java.awt.Color(248, 249, 250));
 
-        contactNumber.setBackground(new java.awt.Color(248, 249, 250));
+        contactNo.setBackground(new java.awt.Color(248, 249, 250));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(33, 37, 41));
@@ -188,7 +190,7 @@ public class addTeacher extends javax.swing.JFrame {
                                 .addGap(97, 97, 97)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel17)
-                                    .addComponent(contactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(contactNo, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(currentAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(dateOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -196,9 +198,9 @@ public class addTeacher extends javax.swing.JFrame {
                                 .addComponent(city, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(maleBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(femaleBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -237,12 +239,12 @@ public class addTeacher extends javax.swing.JFrame {
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton2)))
+                            .addComponent(maleBtn)
+                            .addComponent(femaleBtn)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel17)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(contactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(contactNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(136, Short.MAX_VALUE))
         );
 
@@ -312,10 +314,20 @@ public class addTeacher extends javax.swing.JFrame {
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
-        jButton1.setBackground(new java.awt.Color(28, 126, 214));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton1.setText("Save");
-        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(28, 126, 214), 3, true));
+        saveBtn.setBackground(new java.awt.Color(28, 126, 214));
+        saveBtn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        saveBtn.setText("Save");
+        saveBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(28, 126, 214), 3, true));
+        saveBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                saveBtnMouseClicked(evt);
+            }
+        });
+        saveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveBtnActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(28, 126, 214));
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -332,7 +344,7 @@ public class addTeacher extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jButton2)
                         .addGap(31, 31, 31)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -361,7 +373,7 @@ public class addTeacher extends javax.swing.JFrame {
                         .addGap(44, 44, 44)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -404,13 +416,47 @@ public class addTeacher extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void femaleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_femaleBtnActionPerformed
 
     private void lastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lastNameActionPerformed
+
+    private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
+
+
+    }//GEN-LAST:event_saveBtnActionPerformed
+
+    private void saveBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveBtnMouseClicked
+        LocalDate currentDate = LocalDate.now();
+        teacherFunctionsClass teacher = new teacherFunctionsClass();
+
+        String dateString = dateOfBirth.getText(); // Format: YYYY-MM-DD
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate date = LocalDate.parse(dateString, formatter);
+
+        teacher.setFirstName(firstName.getText());
+        teacher.setLastName(lastName.getText());
+        teacher.setCity(city.getText());
+        teacher.setCurrentAddress(currentAddress.getText());
+        teacher.setDateOfBirth(date);
+
+        String selectedValue = "";
+        if (maleBtn.isSelected()) {
+            selectedValue = maleBtn.getText();
+        } else if (femaleBtn.isSelected()) {
+            selectedValue = femaleBtn.getText();
+        }
+        teacher.setGender(selectedValue);
+        teacher.setContactNo(contactNo.getText());
+        teacher.setDateOfJoining(currentDate);
+        teacher.setCurrentPosition(currentPosition.getText());
+        teacher.setEmployeeId(Integer.parseInt(employeeId.getText()));
+        teacher.insertTeacher(teacher);
+
+    }//GEN-LAST:event_saveBtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -449,14 +495,14 @@ public class addTeacher extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField city;
-    private javax.swing.JTextField contactNumber;
+    private javax.swing.JTextField contactNo;
     private javax.swing.JTextField currentAddress;
     private javax.swing.JTextField currentPosition;
     private javax.swing.JTextField dateOfBirth;
     private javax.swing.JTextField dateOfJoining;
     private javax.swing.JTextField employeeId;
+    private javax.swing.JRadioButton femaleBtn;
     private javax.swing.JTextField firstName;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -477,8 +523,8 @@ public class addTeacher extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextField lastName;
+    private javax.swing.JRadioButton maleBtn;
+    private javax.swing.JButton saveBtn;
     // End of variables declaration//GEN-END:variables
 }

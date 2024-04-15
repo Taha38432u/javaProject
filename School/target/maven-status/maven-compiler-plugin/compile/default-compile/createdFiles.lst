@@ -13,6 +13,7 @@ com\mycompany\school\updateTeacher$6.class
 com\mycompany\school\updateStudent$6.class
 com\mycompany\school\addSubjectsFrame$7.class
 com\mycompany\school\salaryInternal$3.class
+com\mycompany\school\addTeacher$5.class
 com\mycompany\school\attendanceFrame$5.class
 com\mycompany\school\feeFrame$3.class
 com\mycompany\school\studentsFrame$1.class
@@ -35,6 +36,7 @@ com\mycompany\school\addSubjectsFrame$13.class
 com\mycompany\school\payFeeFrame$3.class
 com\mycompany\school\attendanceFrame$2.class
 com\mycompany\school\feeFrame$6.class
+com\mycompany\school\teacherFunctionsClass.class
 com\mycompany\school\studentsFrame.class
 com\mycompany\school\subjectFrame.class
 com\mycompany\school\studentsFrame$2.class
@@ -52,12 +54,13 @@ com\mycompany\school\attendanceFrame$3.class
 com\mycompany\school\editFeeFrame$1.class
 com\mycompany\school\feeFrame$5.class
 com\mycompany\school\teacherFrame$1.class
-com\mycompany\school\viewInfoStudent$3.class
+com\mycompany\school\teacherFrame$8.class
 com\mycompany\school\salaryInternal$2.class
 com\mycompany\school\subjectFrame$1.class
 com\mycompany\school\teacherFrame$5.class
 com\mycompany\school\addFeeFrame$2.class
 com\mycompany\school\addSubjectsFrame$8.class
+com\mycompany\school\addTeacher$4.class
 com\mycompany\school\attendanceFrame$4.class
 com\mycompany\school\attendanceFrame.class
 com\mycompany\school\feeFrame$4.class
@@ -76,6 +79,7 @@ com\mycompany\school\addSubjectsFrame.class
 com\mycompany\school\studentsFrame$8.class
 com\mycompany\school\teacherFrame.class
 com\mycompany\school\Dashboard$11.class
+com\mycompany\school\teacherFunctionsClass$1.class
 com\mycompany\school\editFeeFrame$2.class
 com\mycompany\school\editFeeFrame.class
 com\mycompany\school\testing$1.class
@@ -84,6 +88,7 @@ com\mycompany\school\SalariesInternal$4.class
 com\mycompany\school\Dashboard$12.class
 com\mycompany\school\editFeeFrame$3.class
 com\mycompany\school\studentsFrame$5.class
+com\mycompany\school\updateTeacher$8.class
 com\mycompany\school\addSubjectsFrame$3.class
 com\mycompany\school\salaryInternal$4.class
 com\mycompany\school\addSubjectsFrame$10.class
@@ -97,6 +102,7 @@ com\mycompany\school\teacherFrame$4.class
 com\mycompany\school\addFeeFrame.class
 com\mycompany\school\studentsFrame$6.class
 com\mycompany\school\payFeeFrame.class
+com\mycompany\school\updateTeacher$7.class
 com\mycompany\school\addFeeFrame$1.class
 com\mycompany\school\addTeacher$3.class
 com\mycompany\school\addSubjectsFrame$16.class

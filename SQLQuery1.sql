@@ -19,7 +19,22 @@ create table studentInfo
     contactNo2 VARCHAR(20),
 ); 
 
+CREATE TABLE teacherInfo (
+    id INT PRIMARY KEY IDENTITY(1,1),
+    firstName VARCHAR(50) NOT NULL,
+    lastName VARCHAR(50) NOT NULL,
+    dateOfBirth DATE NOT NULL,
+    City VARCHAR(50) NOT NULL,
+    currentAddress VARCHAR(100) NOT NULL,
+    Gender VARCHAR(10) CHECK (Gender IN ('Male', 'Female')) NOT NULL,
+    contactNo VARCHAR(20) NOT NULL,
+    dateOfJoining DATE NOT NULL,
+    currentPosition VARCHAR(50) NOT NULL,
+    employeeId INT UNIQUE NOT NULL
+);
 
 
-delete from studentInfo where id = 2;
+delete from studentInfo 
 select *from studentInfo;
+
+select *from teacherInfo;
