@@ -9,9 +9,9 @@ com\mycompany\school\salaryInternal.class
 com\mycompany\school\allStudentFunctionClass.class
 com\mycompany\school\salaryInternal$6.class
 com\mycompany\school\updateTeacher$6.class
+com\mycompany\school\updateStudent$6.class
 com\mycompany\school\addSubjectsFrame$7.class
 com\mycompany\school\salaryInternal$3.class
-com\mycompany\school\connectionCLass.class
 com\mycompany\school\attendanceFrame$5.class
 com\mycompany\school\feeFrame$3.class
 com\mycompany\school\studentsFrame$1.class
@@ -45,6 +45,7 @@ com\mycompany\school\payFeeFrame$2.class
 com\mycompany\school\subjectFrame$5.class
 com\mycompany\school\subjectsInternalFrame$1.class
 com\mycompany\school\editSubjectFrame$1.class
+com\mycompany\school\ConnectionClass.class
 com\mycompany\school\studentsFrame$3.class
 com\mycompany\school\attendanceFrame$3.class
 com\mycompany\school\editFeeFrame$1.class
@@ -87,6 +88,7 @@ com\mycompany\school\addSubjectsFrame$10.class
 com\mycompany\school\addSubjectsFrame$17.class
 com\mycompany\school\addSubjectsFrame$2.class
 com\mycompany\school\subjectFrame$2.class
+com\mycompany\school\updateStudent$7.class
 com\mycompany\school\addStudent$4.class
 com\mycompany\school\subjectsInternalFrame$3.class
 com\mycompany\school\teacherFrame$4.class

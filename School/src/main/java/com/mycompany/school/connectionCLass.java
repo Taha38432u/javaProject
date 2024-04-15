@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author Taha Rasheed
  */
-public class connectionCLass {
+public class ConnectionClass {
 
     static Connection con = null;
 

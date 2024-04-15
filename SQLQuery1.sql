@@ -21,5 +21,5 @@ create table studentInfo
 
 
 
-delete from studentInfo where id = 1;
+delete from studentInfo where id = 2;
 select *from studentInfo;

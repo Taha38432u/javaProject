@@ -4,8 +4,6 @@
  */
 package com.mycompany.school;
 
-import static com.mycompany.school.connectionCLass.con;
-import java.sql.DriverManager;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JFrame;
@@ -527,8 +525,6 @@ public class addStudent extends javax.swing.JFrame {
         // Parse the string into a LocalDate object
         LocalDate date = LocalDate.parse(dateString, formatter);
 
-        // Print the LocalDate object
-        System.out.println("Parsed LocalDate: " + date);
 
         obj.setStudentFirstName(firstNameTxt.getText());
         obj.setStudentLastName(lastNameTxt.getText());

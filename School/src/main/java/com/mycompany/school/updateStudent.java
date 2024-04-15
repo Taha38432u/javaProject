@@ -4,7 +4,10 @@
  */
 package com.mycompany.school;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -37,7 +40,7 @@ public class updateStudent extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         getStdName = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        searchClass = new javax.swing.JComboBox<>();
         searchInfoBtn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -66,15 +69,15 @@ public class updateStudent extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         updRollNo = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        classSelect = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
-        updParentFistName = new javax.swing.JTextField();
+        updParentFirstName = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         updParentLastName = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        updProfessoin = new javax.swing.JTextField();
+        updProfession = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
         updContactNo1 = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
@@ -125,12 +128,17 @@ public class updateStudent extends javax.swing.JFrame {
         jLabel18.setForeground(new java.awt.Color(33, 37, 41));
         jLabel18.setText("Class");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kg", "Nursery", "Prep", "Class 1", "Class 2", "Class 3", "Class 4", "Class 5", "Class 6", "Class 7", "Class 8", "Class 9", "Class 10" }));
+        searchClass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kg", "Nursery", "Prep", "Class 1", "Class 2", "Class 3", "Class 4", "Class 5", "Class 6", "Class 7", "Class 8", "Class 9", "Class 10" }));
 
         searchInfoBtn.setBackground(new java.awt.Color(248, 249, 250));
         searchInfoBtn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         searchInfoBtn.setForeground(new java.awt.Color(33, 37, 41));
         searchInfoBtn.setText("Search Information");
+        searchInfoBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchInfoBtnMouseClicked(evt);
+            }
+        });
         searchInfoBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchInfoBtnActionPerformed(evt);
@@ -153,7 +161,7 @@ public class updateStudent extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(searchClass, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(searchInfoBtn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -168,7 +176,7 @@ public class updateStudent extends javax.swing.JFrame {
                     .addComponent(jLabel17)
                     .addComponent(getStdName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchInfoBtn))
                 .addContainerGap(11, Short.MAX_VALUE))
         );
@@ -349,7 +357,7 @@ public class updateStudent extends javax.swing.JFrame {
 
         updRollNo.setBackground(new java.awt.Color(248, 249, 250));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kg", "Nursery", "Prep", "Class 1", "Class 2", "Class 3", "Class 4", "Class 5", "Class 6", "Class 7", "Class 8", "Class 9", "Class 10" }));
+        classSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kg", "Nursery", "Prep", "Class 1", "Class 2", "Class 3", "Class 4", "Class 5", "Class 6", "Class 7", "Class 8", "Class 9", "Class 10" }));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -365,7 +373,7 @@ public class updateStudent extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel13)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(classSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -379,7 +387,7 @@ public class updateStudent extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(jLabel13)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(classSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(updDateOfAdmission, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -401,7 +409,7 @@ public class updateStudent extends javax.swing.JFrame {
         jLabel19.setForeground(new java.awt.Color(33, 37, 41));
         jLabel19.setText("First Name");
 
-        updParentFistName.setBackground(new java.awt.Color(248, 249, 250));
+        updParentFirstName.setBackground(new java.awt.Color(248, 249, 250));
 
         jLabel20.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(33, 37, 41));
@@ -413,7 +421,7 @@ public class updateStudent extends javax.swing.JFrame {
         jLabel21.setForeground(new java.awt.Color(33, 37, 41));
         jLabel21.setText("Profession");
 
-        updProfessoin.setBackground(new java.awt.Color(248, 249, 250));
+        updProfession.setBackground(new java.awt.Color(248, 249, 250));
 
         jLabel22.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(33, 37, 41));
@@ -443,11 +451,11 @@ public class updateStudent extends javax.swing.JFrame {
                             .addComponent(jLabel23)
                             .addComponent(updContactNo2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel21)
-                    .addComponent(updProfessoin, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updProfession, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel19)
-                            .addComponent(updParentFistName, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(updParentFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel20)
@@ -467,11 +475,11 @@ public class updateStudent extends javax.swing.JFrame {
                         .addGap(6, 6, 6)))
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(updParentLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(updParentFistName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(updParentFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(updProfessoin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(updProfession, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
@@ -491,6 +499,11 @@ public class updateStudent extends javax.swing.JFrame {
         updateInfoBtn.setForeground(new java.awt.Color(33, 37, 41));
         updateInfoBtn.setText("Update");
         updateInfoBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(28, 126, 214), 3, true));
+        updateInfoBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateInfoBtnMouseClicked(evt);
+            }
+        });
         updateInfoBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateInfoBtnActionPerformed(evt);
@@ -611,10 +624,88 @@ public class updateStudent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cancelBtnActionPerformed
 
+    private void searchInfoBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchInfoBtnMouseClicked
+        int rollNumber = Integer.parseInt(getRollNo.getText());
+       String cOption = (String) searchClass.getSelectedItem();
+       allStudentFunctionClass student = allStudentFunctionClass.getStudentByRollNo(rollNumber,cOption);
+        try {
+            if (student != null) {
+                updFirstName.setText(student.getStudentFirstName());
+                updLastName.setText(student.getStudentLastName());
+                updDateOfBirth.setText(student.getDateOfBirth().toString());
+                updCity.setText(student.getCity());
+                updCurrentAddress.setText(student.getCurrentAddress());
+                updPermanentAddress.setText(student.getPermanentAddress());
+                updDateOfAdmission.setText(student.getDateOfAdmission().toString());
+                classSelect.setSelectedItem(student.getClass());
+                String rollNo;
+                rollNo = Integer.toString(student.getRollNo());
+                updRollNo.setText(rollNo);
+                updParentFirstName.setText(student.getParentFirstName());
+                updParentLastName.setText(student.getParentLastName());
+                updProfession.setText(student.getProfession());
+                updContactNo1.setText(student.getContactNo1());
+                updContactNo2.setText(student.getContactNo2());
+            } else {
+                JOptionPane.showMessageDialog(null, "No student found with the specified roll number");
+            }
+        }
+         catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+
+    }//GEN-LAST:event_searchInfoBtnMouseClicked
+
+    private void updateInfoBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateInfoBtnMouseClicked
+        
+        allStudentFunctionClass obj = new allStudentFunctionClass();
+
+        String dateString = updDateOfBirth.getText(); // Format: YYYY-MM-DD
+
+        // Define the format of the string
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        // Parse the string into a LocalDate object
+        LocalDate date = LocalDate.parse(dateString, formatter);
+        
+        dateString= updDateOfAdmission.getText();
+        LocalDate admissionDate =  LocalDate.parse(dateString, formatter);
+        int oldRollNo =  Integer.parseInt(getRollNo.getText());
+
+
+        obj.setStudentFirstName(updFirstName.getText());
+        obj.setStudentLastName(updLastName.getText());
+        obj.setDateOfBirth(date);
+        obj.setCity(updCity.getText());
+        obj.setCurrentAddress(updCurrentAddress.getText());
+        obj.setPermanentAddress(updPermanentAddress.getText());
+        
+        String selectedValue = "";
+        if (jRadioButton1.isSelected()) {
+            selectedValue = jRadioButton1.getText();
+        } else if (jRadioButton2.isSelected()) {
+            selectedValue = jRadioButton2.getText();
+        }
+        obj.setGender(selectedValue);
+        
+        obj.setDateOfAdmission(admissionDate);
+        String cOption = (String) classSelect.getSelectedItem();
+        obj.setStudentClass(cOption);
+        int rollNo = Integer.parseInt(updRollNo.getText());
+        obj.setRollNo(rollNo);
+        obj.setParentFirstName(updParentFirstName.getText());
+        obj.setParentLastName(updParentLastName.getText());
+        obj.setProfession(updProfession.getText());
+        obj.setContactNo1(updContactNo1.getText());
+        obj.setContactNo2(updContactNo2.getText());
+        obj.updateStudent(obj,oldRollNo);
+    }//GEN-LAST:event_updateInfoBtnMouseClicked
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) { 
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -648,10 +739,9 @@ public class updateStudent extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelBtn;
+    private javax.swing.JComboBox<String> classSelect;
     private javax.swing.JTextField getRollNo;
     private javax.swing.JTextField getStdName;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -684,6 +774,7 @@ public class updateStudent extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JComboBox<String> searchClass;
     private javax.swing.JButton searchInfoBtn;
     private javax.swing.JTextField updCity;
     private javax.swing.JTextField updContactNo1;
@@ -693,10 +784,10 @@ public class updateStudent extends javax.swing.JFrame {
     private javax.swing.JTextField updDateOfBirth;
     private javax.swing.JTextField updFirstName;
     private javax.swing.JTextField updLastName;
-    private javax.swing.JTextField updParentFistName;
+    private javax.swing.JTextField updParentFirstName;
     private javax.swing.JTextField updParentLastName;
     private javax.swing.JTextField updPermanentAddress;
-    private javax.swing.JTextField updProfessoin;
+    private javax.swing.JTextField updProfession;
     private javax.swing.JTextField updRollNo;
     private javax.swing.JButton updateInfoBtn;
     // End of variables declaration//GEN-END:variables
