@@ -33,8 +33,19 @@ CREATE TABLE teacherInfo (
     employeeId INT UNIQUE NOT NULL
 );
 
+create table subjectInfo 
+(
+	id int identity(1,1) primary key,
+	subjectName varchar(40) not null,
+	class varchar(10)
+);
+
 
 delete from studentInfo 
 select *from studentInfo;
 
 select *from teacherInfo;
+
+delete from subjectInfo;
+insert into subjectInfo values ('math','Kg');
+select *from subjectInfo;
