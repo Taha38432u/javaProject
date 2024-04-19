@@ -151,8 +151,10 @@ public class attendanceFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewAttendanceBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewAttendanceBtnMouseClicked
-        viewAttendance vAtt = new viewAttendance();
-        vAtt.show();
+//        viewAttendance vAtt = new viewAttendance();
+//        vAtt.show();
+        AttendanceStatusFrame att = new AttendanceStatusFrame();
+        att.setVisible(true);
     }//GEN-LAST:event_viewAttendanceBtnMouseClicked
 
     private void viewAttendanceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAttendanceBtnActionPerformed

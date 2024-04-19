@@ -40,6 +40,15 @@ create table subjectInfo
 	class varchar(10)
 );
 
+CREATE TABLE TeacherAttendance (
+    id INT PRIMARY KEY IDENTITY(1,1),
+    teacherId INT NOT NULL,
+    attendanceDate DATE NOT NULL,
+    status VARCHAR(10) CHECK (status IN ('P', 'A')) NOT NULL,
+    FOREIGN KEY (teacherId) REFERENCES teacherInfo(employeeId)
+);
+
+
 
 delete from studentInfo 
 select *from studentInfo;
@@ -49,3 +58,5 @@ select *from teacherInfo;
 delete from subjectInfo;
 insert into subjectInfo values ('math','Kg');
 select *from subjectInfo;
+
+select *from TeacherAttendance

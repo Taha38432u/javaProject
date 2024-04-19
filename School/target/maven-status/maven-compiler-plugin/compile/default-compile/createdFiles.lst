@@ -64,11 +64,13 @@ com\mycompany\school\updateStudent$6.class
 com\mycompany\school\feeFrame$3.class
 com\mycompany\school\studentsFrame$1.class
 com\mycompany\school\SalariesInternal.class
+com\mycompany\school\attendanceClass.class
 com\mycompany\school\editSubjectFrame$9.class
 com\mycompany\school\addSubjectsFrame$4.class
 com\mycompany\school\testing.class
 com\mycompany\school\teacherFrame$3.class
 com\mycompany\school\subjectFrame$6.class
+com\mycompany\school\markAttendance$3.class
 com\mycompany\school\editSubjectFrame$8.class
 com\mycompany\school\attendanceFrame$2.class
 com\mycompany\school\studentsFrame.class
@@ -76,6 +78,7 @@ com\mycompany\school\studentsFrame$2.class
 com\mycompany\school\salaryInternal$1.class
 com\mycompany\school\addFeeFrame$3.class
 com\mycompany\school\editSubjectFrame$2.class
+com\mycompany\school\AttendanceStatusFrame$1.class
 com\mycompany\school\payFeeFrame$2.class
 com\mycompany\school\subjectFrame$5.class
 com\mycompany\school\subjectsInternalFrame$1.class
@@ -112,6 +115,7 @@ com\mycompany\school\salaryInternal$4.class
 com\mycompany\school\addSubjectsFrame$2.class
 com\mycompany\school\subjectFrame$2.class
 com\mycompany\school\updateStudent$7.class
+com\mycompany\school\AttendanceStatusFrame.class
 com\mycompany\school\editSubjectFrame$14.class
 com\mycompany\school\editSubjectFrame$4.class
 com\mycompany\school\teacherFrame$4.class
