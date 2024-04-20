@@ -33,11 +33,12 @@ public class addFeeFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        getClass = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
         rollNoAddFeeTxt = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         addFeeTxt = new javax.swing.JTextField();
+        saveFee = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,7 +73,7 @@ public class addFeeFrame extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(33, 37, 41));
         jLabel13.setText("Class");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kg", "Nursery", "Prep", "Class 1", "Class 2", "Class 3", "Class 4", "Class 5", "Class 6", "Class 7", "Class 8", "Class 9", "Class 10" }));
+        getClass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kg", "Nursery", "Prep", "Class 1", "Class 2", "Class 3", "Class 4", "Class 5", "Class 6", "Class 7", "Class 8", "Class 9", "Class 10" }));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(33, 37, 41));
@@ -96,6 +97,21 @@ public class addFeeFrame extends javax.swing.JFrame {
             }
         });
 
+        saveFee.setBackground(new java.awt.Color(28, 126, 214));
+        saveFee.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        saveFee.setForeground(new java.awt.Color(33, 37, 41));
+        saveFee.setText("Save");
+        saveFee.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                saveFeeMouseClicked(evt);
+            }
+        });
+        saveFee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveFeeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -103,14 +119,17 @@ public class addFeeFrame extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(addFeeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rollNoAddFeeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(saveFee)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel15))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(addFeeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(getClass, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rollNoAddFeeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(266, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -119,7 +138,7 @@ public class addFeeFrame extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(getClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
@@ -128,7 +147,9 @@ public class addFeeFrame extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(addFeeTxt))
-                .addGap(131, 131, 131))
+                .addGap(18, 18, 18)
+                .addComponent(saveFee)
+                .addGap(85, 85, 85))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -156,6 +177,23 @@ public class addFeeFrame extends javax.swing.JFrame {
     private void addFeeTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFeeTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addFeeTxtActionPerformed
+
+    private void saveFeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveFeeMouseClicked
+
+    }//GEN-LAST:event_saveFeeMouseClicked
+
+    private void saveFeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveFeeActionPerformed
+        feeFunctionsClass obj = new feeFunctionsClass();
+         int rollNo = Integer.parseInt(rollNoAddFeeTxt.getText());
+        obj.setStudentRollNo(rollNo);
+        String classOption = (String) getClass.getSelectedItem();
+        obj.setStudentClass(classOption);
+        obj.setStudentName(obj.checkAndReturnStudentName(rollNo,classOption));
+        int fee = Integer.parseInt(addFeeTxt.getText());
+        obj.setFee(fee);
+        obj.setPaidOrNot("Not Paid");
+        obj.addFee(obj);
+    }//GEN-LAST:event_saveFeeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,7 +232,7 @@ public class addFeeFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addFeeTxt;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> getClass;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -202,5 +240,6 @@ public class addFeeFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField rollNoAddFeeTxt;
+    private javax.swing.JButton saveFee;
     // End of variables declaration//GEN-END:variables
 }

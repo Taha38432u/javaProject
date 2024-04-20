@@ -8,6 +8,7 @@ com\mycompany\school\salaryInternal$3.class
 com\mycompany\school\addTeacher$5.class
 com\mycompany\school\attendanceFrame$5.class
 com\mycompany\school\editSubjectFrame$11.class
+com\mycompany\school\feeFunctionsClass.class
 com\mycompany\school\connectionFrame$2.class
 com\mycompany\school\subjectFrame$3.class
 com\mycompany\school\SalariesInternal$1.class
@@ -71,6 +72,7 @@ com\mycompany\school\testing.class
 com\mycompany\school\teacherFrame$3.class
 com\mycompany\school\subjectFrame$6.class
 com\mycompany\school\markAttendance$3.class
+com\mycompany\school\addFeeFrame$4.class
 com\mycompany\school\editSubjectFrame$8.class
 com\mycompany\school\attendanceFrame$2.class
 com\mycompany\school\studentsFrame.class
@@ -102,6 +104,7 @@ com\mycompany\school\addSubjectsFrame$5.class
 com\mycompany\school\addSubjectsFrame.class
 com\mycompany\school\teacherFrame.class
 com\mycompany\school\Dashboard$11.class
+com\mycompany\school\addFeeFrame$5.class
 com\mycompany\school\teacherFunctionsClass$1.class
 com\mycompany\school\editFeeFrame.class
 com\mycompany\school\testing$1.class

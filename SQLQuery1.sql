@@ -48,8 +48,18 @@ CREATE TABLE TeacherAttendance (
     FOREIGN KEY (teacherId) REFERENCES teacherInfo(employeeId)
 );
 
+create table studentFee 
+(
+id int primary key identity (1,1),
+studentRollNo int not null,
+studentName varchar(40) not null,
+studentClass varchar(10) not null,
+payDate date  , 
+paidOrNot varchar(10) check (paidOrNot in ('Paid','Not Paid')) not null,
+fee int not null,
+);
 
-
+drop table studentFee;
 delete from studentInfo 
 select *from studentInfo;
 
@@ -60,3 +70,4 @@ insert into subjectInfo values ('math','Kg');
 select *from subjectInfo;
 
 select *from TeacherAttendance
+select *from studentFee;
