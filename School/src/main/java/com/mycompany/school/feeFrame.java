@@ -93,8 +93,13 @@ public class feeFrame extends javax.swing.JFrame {
         thatHaveNotPaid.setBackground(new java.awt.Color(28, 126, 214));
         thatHaveNotPaid.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         thatHaveNotPaid.setForeground(new java.awt.Color(33, 37, 41));
-        thatHaveNotPaid.setText("Not Paid");
+        thatHaveNotPaid.setText("Paid");
         thatHaveNotPaid.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(28, 126, 214), 3, true));
+        thatHaveNotPaid.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                thatHaveNotPaidMouseClicked(evt);
+            }
+        });
         thatHaveNotPaid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 thatHaveNotPaidActionPerformed(evt);
@@ -198,6 +203,11 @@ public class feeFrame extends javax.swing.JFrame {
     private void thatHaveNotPaidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_thatHaveNotPaidActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_thatHaveNotPaidActionPerformed
+
+    private void thatHaveNotPaidMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thatHaveNotPaidMouseClicked
+        FeeInfoFrame obj = new FeeInfoFrame();
+        obj.setVisible(true);
+    }//GEN-LAST:event_thatHaveNotPaidMouseClicked
 
     /**
      * @param args the command line arguments

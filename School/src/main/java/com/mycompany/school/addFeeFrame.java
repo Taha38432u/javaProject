@@ -191,7 +191,6 @@ public class addFeeFrame extends javax.swing.JFrame {
         obj.setStudentName(obj.checkAndReturnStudentName(rollNo,classOption));
         int fee = Integer.parseInt(addFeeTxt.getText());
         obj.setFee(fee);
-        obj.setPaidOrNot("Not Paid");
         obj.addFee(obj);
     }//GEN-LAST:event_saveFeeActionPerformed
 
