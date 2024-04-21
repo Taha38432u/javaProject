@@ -66,6 +66,11 @@ create table recordsOfFee
 	paidOrNot varchar(10) check (paidOrNot in ('Paid','Not Paid')) not null,
 );
 
+-- Table to store student test results
+
+
+
+
 drop table studentFee;
 delete from studentInfo 
 select *from studentInfo;
@@ -79,3 +84,47 @@ select *from subjectInfo;
 select *from TeacherAttendance;
 select *from studentsFee;
 select *from recordsOfFee;
+
+CREATE TABLE Result (
+    resultId INT ,
+    studentRollNo INT NOT NULL,
+    studentClassId VARCHAR(30) NOT NULL,
+    subject1Name VARCHAR(50),
+    subject1TotalMarks INT,
+    subject1ObtainedMarks INT,
+    subject2Name VARCHAR(50),
+    subject2TotalMarks INT,
+    subject2ObtainedMarks INT,
+    subject3Name VARCHAR(50),
+    subject3TotalMarks INT,
+    subject3ObtainedMarks INT,
+    subject4Name VARCHAR(50),
+    subject4TotalMarks INT,
+    subject4ObtainedMarks INT,
+    subject5Name VARCHAR(50),
+    subject5TotalMarks INT,
+    subject5ObtainedMarks INT,
+    subject6Name VARCHAR(50),
+    subject6TotalMarks INT,
+    subject6ObtainedMarks INT,
+    subject7Name VARCHAR(50),
+    subject7TotalMarks INT,
+    subject7ObtainedMarks INT,
+    subject8Name VARCHAR(50),
+    subject8TotalMarks INT,
+    subject8ObtainedMarks INT,
+    subject9Name VARCHAR(50),
+    subject9TotalMarks INT,
+    subject9ObtainedMarks INT,
+    subject10Name VARCHAR(50),
+    subject10TotalMarks INT,
+    subject10ObtainedMarks INT,
+	testType varchar(40),
+	totalMarks int,
+	obtainedMarks int,
+	obtainedPercentage int
+);
+
+select *from Result;
+drop table Result;
+
