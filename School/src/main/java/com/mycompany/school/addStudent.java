@@ -104,7 +104,7 @@ public class addStudent extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(165, 216, 255));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(33, 37, 41));
@@ -263,7 +263,7 @@ public class addStudent extends javax.swing.JFrame {
         jLabel10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(28, 126, 214), 2, true));
         jLabel10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jPanel4.setBackground(new java.awt.Color(233, 236, 239));
+        jPanel4.setBackground(new java.awt.Color(165, 216, 255));
         jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(28, 126, 214), 2, true));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -328,7 +328,7 @@ public class addStudent extends javax.swing.JFrame {
         jLabel15.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(28, 126, 214), 2, true));
         jLabel15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jPanel5.setBackground(new java.awt.Color(233, 236, 239));
+        jPanel5.setBackground(new java.awt.Color(165, 216, 255));
         jPanel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(28, 126, 214), 2, true));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N

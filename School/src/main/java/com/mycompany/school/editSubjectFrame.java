@@ -81,7 +81,7 @@ public class editSubjectFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.setBackground(new java.awt.Color(206, 212, 218));
+        jPanel3.setBackground(new java.awt.Color(165, 216, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(648, 513));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kg", "Nursery", "Prep", "Class 1", "Class 2", "Class 3", "Class 4", "Class 5", "Class 6", "Class 7", "Class 8", "Class 9", "Class 10" }));

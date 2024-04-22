@@ -67,7 +67,7 @@ public class Dashboard extends javax.swing.JFrame {
         setBackground(new java.awt.Color(51, 51, 51));
         setLocationByPlatform(true);
 
-        BackgroundPanel.setBackground(new java.awt.Color(153, 153, 153));
+        BackgroundPanel.setBackground(new java.awt.Color(33, 37, 41));
         BackgroundPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 5, true));
         BackgroundPanel.setForeground(new java.awt.Color(51, 255, 255));
         BackgroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -91,10 +91,11 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\com\\mycompany\\Images\\Students.png"));
         BackgroundPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 110, 130));
 
-        ToolBarPanel.setBackground(new java.awt.Color(0, 0, 51));
+        ToolBarPanel.setBackground(new java.awt.Color(25, 118, 211));
         ToolBarPanel.setLayout(null);
 
-        feeMainBtn.setBackground(new java.awt.Color(25, 118, 211));
+        feeMainBtn.setBackground(new java.awt.Color(99, 230, 190));
+        feeMainBtn.setForeground(new java.awt.Color(33, 37, 41));
         feeMainBtn.setText("Fee");
         feeMainBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -109,7 +110,8 @@ public class Dashboard extends javax.swing.JFrame {
         ToolBarPanel.add(feeMainBtn);
         feeMainBtn.setBounds(30, 500, 100, 40);
 
-        jButton9.setBackground(new java.awt.Color(0, 102, 204));
+        jButton9.setBackground(new java.awt.Color(99, 230, 190));
+        jButton9.setForeground(new java.awt.Color(33, 37, 41));
         jButton9.setText("Subjects");
         jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -124,7 +126,8 @@ public class Dashboard extends javax.swing.JFrame {
         ToolBarPanel.add(jButton9);
         jButton9.setBounds(30, 220, 100, 40);
 
-        teacherMainBtn.setBackground(new java.awt.Color(25, 118, 211));
+        teacherMainBtn.setBackground(new java.awt.Color(99, 230, 190));
+        teacherMainBtn.setForeground(new java.awt.Color(33, 37, 41));
         teacherMainBtn.setText("Teachers");
         teacherMainBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -139,7 +142,8 @@ public class Dashboard extends javax.swing.JFrame {
         ToolBarPanel.add(teacherMainBtn);
         teacherMainBtn.setBounds(30, 290, 100, 40);
 
-        studentMainBtn.setBackground(new java.awt.Color(25, 118, 211));
+        studentMainBtn.setBackground(new java.awt.Color(99, 230, 190));
+        studentMainBtn.setForeground(new java.awt.Color(33, 37, 41));
         studentMainBtn.setText("Students");
         studentMainBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -149,7 +153,8 @@ public class Dashboard extends javax.swing.JFrame {
         ToolBarPanel.add(studentMainBtn);
         studentMainBtn.setBounds(30, 360, 100, 40);
 
-        attendacneMainButton.setBackground(new java.awt.Color(25, 118, 211));
+        attendacneMainButton.setBackground(new java.awt.Color(99, 230, 190));
+        attendacneMainButton.setForeground(new java.awt.Color(33, 37, 41));
         attendacneMainButton.setText("Attendance");
         attendacneMainButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -270,12 +275,11 @@ public class Dashboard extends javax.swing.JFrame {
 
         BackgroundPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 100, 230, 140));
 
-        jPanel2.setBackground(new java.awt.Color(51, 255, 204));
-        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 204), 5, true));
+        jPanel2.setBackground(new java.awt.Color(192, 235, 117));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
 
-        jButton4.setBackground(new java.awt.Color(0, 255, 204));
+        jButton4.setBackground(new java.awt.Color(192, 235, 117));
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(0, 0, 204));
         jButton4.setText("Total Students");
@@ -288,8 +292,10 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel2.add(jButton4);
         jButton4.setBounds(20, 20, 130, 40);
 
-        jTextField1.setBackground(new java.awt.Color(0, 255, 204));
+        jTextField1.setEditable(false);
+        jTextField1.setBackground(new java.awt.Color(192, 235, 117));
         jTextField1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(0, 0, 204));
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("872");
         jTextField1.setToolTipText("");

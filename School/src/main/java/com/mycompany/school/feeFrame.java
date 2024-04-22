@@ -37,22 +37,24 @@ public class feeFrame extends javax.swing.JFrame {
         editFeeBtn = new javax.swing.JButton();
         payFeebtn = new javax.swing.JButton();
         thatHaveNotPaid = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(28, 126, 214));
+        jPanel2.setBackground(new java.awt.Color(33, 37, 41));
         jPanel2.setForeground(new java.awt.Color(33, 37, 41));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(33, 37, 41));
+        jLabel1.setForeground(new java.awt.Color(99, 230, 190));
         jLabel1.setText("Fee");
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
         jPanel3.setPreferredSize(new java.awt.Dimension(648, 513));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel4.setBackground(new java.awt.Color(0, 51, 153));
+        jPanel4.setBackground(new java.awt.Color(33, 37, 41));
 
-        addFeeBtn.setBackground(new java.awt.Color(28, 126, 214));
+        addFeeBtn.setBackground(new java.awt.Color(99, 230, 190));
         addFeeBtn.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         addFeeBtn.setForeground(new java.awt.Color(33, 37, 41));
         addFeeBtn.setText("Add Fee of Student");
@@ -68,7 +70,7 @@ public class feeFrame extends javax.swing.JFrame {
             }
         });
 
-        editFeeBtn.setBackground(new java.awt.Color(28, 126, 214));
+        editFeeBtn.setBackground(new java.awt.Color(99, 230, 190));
         editFeeBtn.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         editFeeBtn.setForeground(new java.awt.Color(33, 37, 41));
         editFeeBtn.setText("Edit Fee of Student");
@@ -79,7 +81,7 @@ public class feeFrame extends javax.swing.JFrame {
             }
         });
 
-        payFeebtn.setBackground(new java.awt.Color(28, 126, 214));
+        payFeebtn.setBackground(new java.awt.Color(99, 230, 190));
         payFeebtn.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         payFeebtn.setForeground(new java.awt.Color(33, 37, 41));
         payFeebtn.setText("Pay Fee");
@@ -90,7 +92,7 @@ public class feeFrame extends javax.swing.JFrame {
             }
         });
 
-        thatHaveNotPaid.setBackground(new java.awt.Color(28, 126, 214));
+        thatHaveNotPaid.setBackground(new java.awt.Color(99, 230, 190));
         thatHaveNotPaid.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         thatHaveNotPaid.setForeground(new java.awt.Color(33, 37, 41));
         thatHaveNotPaid.setText("Paid");
@@ -130,52 +132,45 @@ public class feeFrame extends javax.swing.JFrame {
                 .addComponent(payFeebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addComponent(thatHaveNotPaid, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 470));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\com\\mycompany\\Images\\im.png"));
+        jLabel2.setText("jLabel2");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, -70, 650, 610));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(308, 308, 308)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(370, 370, 370)
                 .addComponent(jLabel1)
-                .addContainerGap(336, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 786, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -248,6 +243,7 @@ public class feeFrame extends javax.swing.JFrame {
     private javax.swing.JButton addFeeBtn;
     private javax.swing.JButton editFeeBtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

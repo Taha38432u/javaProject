@@ -64,7 +64,7 @@ public class markAttendance extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(233, 236, 239));
+        jPanel2.setBackground(new java.awt.Color(165, 216, 255));
         jPanel2.setForeground(new java.awt.Color(233, 236, 239));
 
         submitBtn.setBackground(new java.awt.Color(28, 126, 214));

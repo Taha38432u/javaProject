@@ -110,7 +110,7 @@ public class updateStudent extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(233, 236, 239));
+        jPanel2.setBackground(new java.awt.Color(165, 216, 255));
 
         jLabel16.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(33, 37, 41));
@@ -181,9 +181,9 @@ public class updateStudent extends javax.swing.JFrame {
                 .addContainerGap(11, Short.MAX_VALUE))
         );
 
-        jPanel3.setBackground(new java.awt.Color(233, 236, 239));
+        jPanel3.setBackground(new java.awt.Color(165, 216, 255));
 
-        jPanel4.setBackground(new java.awt.Color(233, 236, 239));
+        jPanel4.setBackground(new java.awt.Color(165, 216, 255));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(33, 37, 41));
@@ -338,7 +338,7 @@ public class updateStudent extends javax.swing.JFrame {
         jLabel10.setText("School Details");
         jLabel10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(28, 126, 214), 2, true));
 
-        jPanel6.setBackground(new java.awt.Color(233, 236, 239));
+        jPanel6.setBackground(new java.awt.Color(165, 216, 255));
         jPanel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(28, 126, 214), 2, true));
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
@@ -402,7 +402,7 @@ public class updateStudent extends javax.swing.JFrame {
         jLabel15.setText("Parent Details");
         jLabel15.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(28, 126, 214), 2, true));
 
-        jPanel7.setBackground(new java.awt.Color(233, 236, 239));
+        jPanel7.setBackground(new java.awt.Color(165, 216, 255));
         jPanel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(28, 126, 214), 2, true));
 
         jLabel19.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N

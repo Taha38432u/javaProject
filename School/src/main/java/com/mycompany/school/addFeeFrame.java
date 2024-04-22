@@ -66,7 +66,7 @@ public class addFeeFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel3.setBackground(new java.awt.Color(206, 212, 218));
+        jPanel3.setBackground(new java.awt.Color(165, 216, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(648, 513));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N

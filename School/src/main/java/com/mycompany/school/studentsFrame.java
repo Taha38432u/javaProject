@@ -30,48 +30,50 @@ public class studentsFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         addStudentBtn = new javax.swing.JButton();
         udpateStudentBtn = new javax.swing.JButton();
         deleteStudent = new javax.swing.JButton();
-        studentsLeftSchool = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(28, 126, 214));
+        jPanel2.setBackground(new java.awt.Color(33, 37, 41));
         jPanel2.setForeground(new java.awt.Color(33, 37, 41));
 
-        jTextField1.setBackground(new java.awt.Color(28, 126, 214));
-        jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setText("Student");
-        jTextField1.setBorder(null);
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(99, 230, 190));
+        jLabel1.setText("Students");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(342, 342, 342)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(291, 291, 291)
+                .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
         jPanel3.setPreferredSize(new java.awt.Dimension(648, 513));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel4.setBackground(new java.awt.Color(0, 0, 153));
+        jPanel4.setBackground(new java.awt.Color(33, 37, 41));
 
-        jButton1.setBackground(new java.awt.Color(28, 126, 214));
-        jButton1.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        jButton1.setBackground(new java.awt.Color(99, 230, 190));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(33, 37, 41));
         jButton1.setText("View Info");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -85,7 +87,7 @@ public class studentsFrame extends javax.swing.JFrame {
             }
         });
 
-        addStudentBtn.setBackground(new java.awt.Color(28, 126, 214));
+        addStudentBtn.setBackground(new java.awt.Color(99, 230, 190));
         addStudentBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         addStudentBtn.setForeground(new java.awt.Color(33, 37, 41));
         addStudentBtn.setText("Add Student");
@@ -95,7 +97,7 @@ public class studentsFrame extends javax.swing.JFrame {
             }
         });
 
-        udpateStudentBtn.setBackground(new java.awt.Color(28, 126, 214));
+        udpateStudentBtn.setBackground(new java.awt.Color(99, 230, 190));
         udpateStudentBtn.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         udpateStudentBtn.setForeground(new java.awt.Color(33, 37, 41));
         udpateStudentBtn.setText("Update Student");
@@ -110,7 +112,7 @@ public class studentsFrame extends javax.swing.JFrame {
             }
         });
 
-        deleteStudent.setBackground(new java.awt.Color(28, 126, 214));
+        deleteStudent.setBackground(new java.awt.Color(99, 230, 190));
         deleteStudent.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         deleteStudent.setForeground(new java.awt.Color(33, 37, 41));
         deleteStudent.setText("Delete Student");
@@ -125,18 +127,9 @@ public class studentsFrame extends javax.swing.JFrame {
             }
         });
 
-        studentsLeftSchool.setBackground(new java.awt.Color(28, 126, 214));
-        studentsLeftSchool.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        studentsLeftSchool.setForeground(new java.awt.Color(33, 37, 41));
-        studentsLeftSchool.setText("Previous Data");
-        studentsLeftSchool.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                studentsLeftSchoolActionPerformed(evt);
-            }
-        });
-
-        jButton2.setBackground(new java.awt.Color(28, 126, 214));
+        jButton2.setBackground(new java.awt.Color(99, 230, 190));
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(33, 37, 41));
         jButton2.setText("Parent Info");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -146,7 +139,6 @@ public class studentsFrame extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(deleteStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(studentsLeftSchool, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel4Layout.createSequentialGroup()
                             .addGap(20, 20, 20)
@@ -157,7 +149,7 @@ public class studentsFrame extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,40 +164,28 @@ public class studentsFrame extends javax.swing.JFrame {
                 .addComponent(udpateStudentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(deleteStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(studentsLeftSchool, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
+                .addGap(141, 141, 141))
         );
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 676, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\com\\mycompany\\Images\\im.png"));
+        jLabel2.setText("jLabel2");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, -70, 1090, 610));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 846, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -242,10 +222,6 @@ public class studentsFrame extends javax.swing.JFrame {
     private void deleteStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteStudentActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteStudentActionPerformed
-
-    private void studentsLeftSchoolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentsLeftSchoolActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_studentsLeftSchoolActionPerformed
 
     /**
      * @param args the command line arguments
@@ -287,11 +263,11 @@ public class studentsFrame extends javax.swing.JFrame {
     private javax.swing.JButton deleteStudent;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JButton studentsLeftSchool;
     private javax.swing.JButton udpateStudentBtn;
     // End of variables declaration//GEN-END:variables
 }

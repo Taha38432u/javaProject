@@ -46,7 +46,7 @@ public class payFeeFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel3.setBackground(new java.awt.Color(206, 212, 218));
+        jPanel3.setBackground(new java.awt.Color(165, 216, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(648, 513));
 
         jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
