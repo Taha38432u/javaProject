@@ -60,37 +60,36 @@ public class ResultViewer extends JFrame {
         setVisible(true);
     }
 
-   private void showResult() {
-    // Get input values
-    String className = classField.getText();
-    int rollNo = Integer.parseInt(rollNoField.getText());
-    int resultId = Integer.parseInt(resultIdField.getText());
+    private void showResult() {
+        // Get input values
+        String className = classField.getText();
+        int rollNo = Integer.parseInt(rollNoField.getText());
+        int resultId = Integer.parseInt(resultIdField.getText());
 
-    // Query the database for the result
-    resultFunctions resultFunc = new resultFunctions();
-    resultFunc.setStudentClassId(className);
-    resultFunc.setStudentRollNo(rollNo);
-    resultFunc.setResultId(resultId);
+        // Query the database for the result
+        resultFunctions resultFunc = new resultFunctions();
+        resultFunc.setStudentClassId(className);
+        resultFunc.setStudentRollNo(rollNo);
+        resultFunc.setResultId(resultId);
 
-    resultFunctions result = resultFunctions.retrieveResult(resultId, className, rollNo);
+        resultFunctions result = resultFunctions.retrieveResult(resultId, className, rollNo);
 
-    // Display the result in a new JFrame
-    if (result != null) {
-        // Check for null subject names and skip corresponding total marks and obtained marks
-        if (result.getSubject1Name() == null) {
-            result.setSubject1TotalMarks(0);
-            result.setSubject1ObtainedMarks(0);
+        // Display the result in a new JFrame
+        if (result != null) {
+            // Check for null subject names and skip corresponding total marks and obtained marks
+//        if (result.getSubject1Name() == null) {
+//            result.setSubject1TotalMarks(0);
+//            result.setSubject1ObtainedMarks(0);
+//        }
+//        // Repeat this pattern for each subject
+//        // ...
+//
+//        // Display the result
+            new ResultDisplay(result);
+        } else {
+            JOptionPane.showMessageDialog(null, "Result not found!", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        // Repeat this pattern for each subject
-        // ...
-
-        // Display the result
-        new ResultDisplay(result);
-    } else {
-        JOptionPane.showMessageDialog(null, "Result not found!", "Error", JOptionPane.ERROR_MESSAGE);
     }
-}
-
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {

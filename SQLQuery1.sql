@@ -69,22 +69,6 @@ create table recordsOfFee
 -- Table to store student test results
 
 
-
-
-drop table studentFee;
-delete from studentInfo 
-select *from studentInfo;
-
-select *from teacherInfo;
-
-delete from subjectInfo;
-insert into subjectInfo values ('math','Kg');
-select *from subjectInfo;
-
-select *from TeacherAttendance;
-select *from studentsFee;
-select *from recordsOfFee;
-
 CREATE TABLE Result (
     resultId INT ,
     studentRollNo INT NOT NULL,
@@ -125,6 +109,39 @@ CREATE TABLE Result (
 	obtainedPercentage int
 );
 
-select *from Result;
-drop table Result;
+create table employeeSalary 
+(
+	id int primary key identity(1,1) not null,
+	employeeId int unique not null,
+	salary int not null,
+	FOREIGN KEY (employeeId) REFERENCES teacherInfo(employeeId)
+);
+create  table total 
+(
+	id int  primary key not null identity (1,1),
+	totalSalary int not null,
+	totalStudents int not null,
+	totalFee int not null,
+);
 
+select *from total;
+select *from employeeSalary;
+select *from Result;
+select *from studentInfo;
+select *from teacherInfo;
+select *from subjectInfo;
+select *from TeacherAttendance;
+select *from studentsFee;
+select *from recordsOfFee;
+
+
+
+delete from studentInfo 
+delete from subjectInfo;
+delete from teacherInfo;
+delete from total;
+delete from result;
+delete from employeeSalary;
+delete from TeacherAttendance;
+delete from studentsFee;
+delete from recordsOfFee;

@@ -4,6 +4,11 @@
  */
 package com.mycompany.school;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author System User
@@ -51,16 +56,19 @@ public class Dashboard extends javax.swing.JFrame {
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(500, 0), new java.awt.Dimension(500, 0), new java.awt.Dimension(500, 32767));
         jPanel1 = new javax.swing.JPanel();
         jButton7 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
+        setTotalSalary = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        updateSalary = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        setTotalStudents = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        updateStudents = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jButton13 = new javax.swing.JButton();
         jTextField3 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        updateFee = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("@FutureStars");
@@ -186,8 +194,13 @@ public class Dashboard extends javax.swing.JFrame {
         BackgroundPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 260, 130, 130));
 
         clsBtn.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
-        clsBtn.setText("Classes");
+        clsBtn.setText("Salary");
         clsBtn.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 4, true)));
+        clsBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clsBtnMouseClicked(evt);
+            }
+        });
         BackgroundPanel.add(clsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, 120, 40));
 
         adminBtn.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
@@ -232,6 +245,11 @@ public class Dashboard extends javax.swing.JFrame {
         resultBtn.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 4, true)));
         resultBtn.setName(""); // NOI18N
         resultBtn.setPreferredSize(new java.awt.Dimension(63, 26));
+        resultBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                resultBtnMouseClicked(evt);
+            }
+        });
         BackgroundPanel.add(resultBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 380, 140, 40));
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -259,19 +277,31 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel1.add(jButton7);
         jButton7.setBounds(10, 20, 130, 40);
 
-        jTextField2.setBackground(new java.awt.Color(255, 204, 204));
-        jTextField2.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(0, 0, 153));
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField2.setText("15,000");
-        jTextField2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 153), 1, true));
-        jPanel1.add(jTextField2);
-        jTextField2.setBounds(120, 80, 100, 40);
+        setTotalSalary.setBackground(new java.awt.Color(255, 204, 204));
+        setTotalSalary.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        setTotalSalary.setForeground(new java.awt.Color(0, 0, 153));
+        setTotalSalary.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        setTotalSalary.setText("15,000");
+        setTotalSalary.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 153), 1, true));
+        jPanel1.add(setTotalSalary);
+        setTotalSalary.setBounds(120, 80, 100, 40);
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\com\\mycompany\\Images\\Salary.png"));
         jPanel1.add(jLabel9);
         jLabel9.setBounds(160, 20, 50, 40);
+
+        updateSalary.setBackground(new java.awt.Color(255, 204, 204));
+        updateSalary.setForeground(new java.awt.Color(0, 0, 204));
+        updateSalary.setText("Update");
+        updateSalary.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+        updateSalary.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateSalaryMouseClicked(evt);
+            }
+        });
+        jPanel1.add(updateSalary);
+        updateSalary.setBounds(20, 90, 70, 30);
 
         BackgroundPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 100, 230, 140));
 
@@ -292,21 +322,33 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel2.add(jButton4);
         jButton4.setBounds(20, 20, 130, 40);
 
-        jTextField1.setEditable(false);
-        jTextField1.setBackground(new java.awt.Color(192, 235, 117));
-        jTextField1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 0, 204));
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setText("872");
-        jTextField1.setToolTipText("");
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 204)));
-        jPanel2.add(jTextField1);
-        jTextField1.setBounds(156, 80, 64, 40);
+        setTotalStudents.setEditable(false);
+        setTotalStudents.setBackground(new java.awt.Color(192, 235, 117));
+        setTotalStudents.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        setTotalStudents.setForeground(new java.awt.Color(0, 0, 204));
+        setTotalStudents.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        setTotalStudents.setText("872");
+        setTotalStudents.setToolTipText("");
+        setTotalStudents.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 204)));
+        jPanel2.add(setTotalStudents);
+        setTotalStudents.setBounds(156, 80, 64, 40);
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\com\\mycompany\\Images\\Student.png"));
         jPanel2.add(jLabel5);
         jLabel5.setBounds(170, 20, 30, 40);
+
+        updateStudents.setBackground(new java.awt.Color(192, 235, 117));
+        updateStudents.setForeground(new java.awt.Color(0, 0, 204));
+        updateStudents.setText("Update");
+        updateStudents.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+        updateStudents.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateStudentsMouseClicked(evt);
+            }
+        });
+        jPanel2.add(updateStudents);
+        updateStudents.setBounds(20, 90, 80, 30);
 
         BackgroundPanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 230, 140));
 
@@ -336,6 +378,13 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\com\\mycompany\\Images\\Fee.png"));
         jPanel3.add(jLabel8);
         jLabel8.setBounds(170, 20, 50, 40);
+
+        updateFee.setBackground(new java.awt.Color(153, 255, 153));
+        updateFee.setForeground(new java.awt.Color(0, 0, 204));
+        updateFee.setText("Update");
+        updateFee.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+        jPanel3.add(updateFee);
+        updateFee.setBounds(10, 90, 70, 30);
 
         BackgroundPanel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 100, 230, 140));
 
@@ -405,6 +454,58 @@ public class Dashboard extends javax.swing.JFrame {
         subFrame.show();
     }//GEN-LAST:event_subBtnMouseClicked
 
+    private void updateSalaryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateSalaryMouseClicked
+        employeeSalaryFunctions obj = new employeeSalaryFunctions();
+        obj.updateTotalSalary();
+        int totalSalary = 0;
+        String query = "SELECT totalSalary FROM total WHERE id = 1";
+
+        try {
+            Connection con = ConnectionClass.db();
+            PreparedStatement pstmt = con.prepareStatement(query);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                totalSalary = rs.getInt("totalSalary");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        String total = String.valueOf(totalSalary);
+        setTotalSalary.setText(total);
+    }//GEN-LAST:event_updateSalaryMouseClicked
+
+    private void clsBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clsBtnMouseClicked
+        salaryMainFrame obj = new salaryMainFrame();
+        obj.show();
+    }//GEN-LAST:event_clsBtnMouseClicked
+
+    private void resultBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resultBtnMouseClicked
+        resultMainForm obj = new resultMainForm();
+        obj.show();
+    }//GEN-LAST:event_resultBtnMouseClicked
+
+    private void updateStudentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateStudentsMouseClicked
+        allStudentFunctionClass obj = new allStudentFunctionClass();
+        obj.updateTotalStudents();
+        int totalStudents = 0;
+        String query = "SELECT totalStudents FROM total WHERE id = 1";
+
+        try {
+            Connection con = ConnectionClass.db();
+            PreparedStatement pstmt = con.prepareStatement(query);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                totalStudents = rs.getInt("totalStudents");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        String total = String.valueOf(totalStudents);
+        setTotalStudents.setText(total);
+    }//GEN-LAST:event_updateStudentsMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -468,13 +569,16 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JButton resultBtn;
+    private javax.swing.JTextField setTotalSalary;
+    private javax.swing.JTextField setTotalStudents;
     private javax.swing.JButton stdBtn;
     private javax.swing.JButton studentMainBtn;
     private javax.swing.JButton subBtn;
     private javax.swing.JButton teacherMainBtn;
+    private javax.swing.JButton updateFee;
+    private javax.swing.JButton updateSalary;
+    private javax.swing.JButton updateStudents;
     // End of variables declaration//GEN-END:variables
 }

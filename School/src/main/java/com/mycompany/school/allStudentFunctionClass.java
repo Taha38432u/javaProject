@@ -198,6 +198,7 @@ public class allStudentFunctionClass {
             // Execute the INSERT statement
             pstmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Record inserted successfully");
+            updateTotalStudents();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -427,6 +428,32 @@ public class allStudentFunctionClass {
         });
 
         frame.setVisible(true);
+    }
+
+    public void updateTotalStudents() {
+        String selectQuery = "SELECT COUNT(*) AS totalStudents FROM studentInfo";
+        String updateQuery = "UPDATE total SET totalStudents = ? WHERE id = 1";
+
+        try {
+            Connection con = ConnectionClass.db();
+            PreparedStatement selectStatement = con.prepareStatement(selectQuery);
+            ResultSet resultSet = selectStatement.executeQuery();
+
+            // Get the total number of students from the result set
+            int totalStudents = 0;
+            if (resultSet.next()) {
+                totalStudents = resultSet.getInt("totalStudents");
+            }
+
+            // Update the total students in the total table
+            PreparedStatement updateStatement = con.prepareStatement(updateQuery);
+            updateStatement.setInt(1, totalStudents);
+            updateStatement.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Total students updated successfully");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
 
 }

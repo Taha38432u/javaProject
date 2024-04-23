@@ -1,11 +1,12 @@
+E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\IOException.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\addFeeFrame.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\subjectFunctions.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\attendanceClass.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\editFeeFrame.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\AttendanceStatusFrame.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\ResultDisplay.java
-E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\salaryInternal.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\allStudentFunctionClass.java
+E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\employeeSalaryFunctions.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\ResultViewer.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\teacherFunctionsClass.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\markAttendance.java
@@ -18,11 +19,11 @@ E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\co
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\teacherFrame.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\attendanceFrame.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\payFeeFrame.java
+E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\salaryMainFrame.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\resultMainForm.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\editSubjectFrame.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\studentsFrame.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\CalculateSalaries.java
-E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\subjectsInternalFrame.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\showSalaries.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\updateTeacher.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\subjectFrame.java
@@ -33,7 +34,9 @@ E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\lo
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\addSubjectsFrame.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\resultFunctions.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\SalariesInternal.java
+E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\editSalaryFrame.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\addTeacher.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\ConnectionClass.java
+E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\addSalaryFrame.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\viewAttendance.java
 E:\Lectures+Assingments\javaProject\School\src\main\java\com\mycompany\school\updateSalary.java

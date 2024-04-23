@@ -513,7 +513,46 @@ public class addStudent extends javax.swing.JFrame {
     }//GEN-LAST:event_firstNameTxtActionPerformed
 
     private void insertStdRecordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_insertStdRecordMouseClicked
-        
+        LocalDate currentDate = LocalDate.now();
+        allStudentFunctionClass obj = new allStudentFunctionClass();
+
+        String dateString = dateOfBirthTxt.getText(); // Format: YYYY-MM-DD
+
+        // Define the format of the string
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        // Parse the string into a LocalDate object
+        LocalDate date = LocalDate.parse(dateString, formatter);
+
+        // Print the LocalDate object
+        System.out.println("Parsed LocalDate: " + date);
+
+        obj.setStudentFirstName(firstNameTxt.getText());
+        obj.setStudentLastName(lastNameTxt.getText());
+        obj.setDateOfBirth(date);
+        obj.setCity(cityTxt.getText());
+        obj.setCurrentAddress(currentAddressTxt.getText());
+        obj.setPermanentAddress(permanentAddressTxt.getText());
+
+        String selectedValue = "";
+        if (maleBtn.isSelected()) {
+            selectedValue = maleBtn.getText();
+        } else if (femaleBtn.isSelected()) {
+            selectedValue = femaleBtn.getText();
+        }
+        obj.setGender(selectedValue);
+
+        obj.setDateOfAdmission(currentDate);
+        String cOption = (String) classOption.getSelectedItem();
+        obj.setStudentClass(cOption);
+        int rollNo = Integer.parseInt(rollNoStd.getText());
+        obj.setRollNo(rollNo);
+        obj.setParentFirstName(parentFirstName.getText());
+        obj.setParentLastName(parentLastName.getText());
+        obj.setProfession(professionTxt.getText());
+        obj.setContactNo1(contactNo1.getText());
+        obj.setContactNo2(contactNo2.getText());
+        obj.insertStudent(obj);
     }//GEN-LAST:event_insertStdRecordMouseClicked
 
     /**
