@@ -4,6 +4,7 @@
  */
 package com.mycompany.school;
 
+import java.sql.Connection;
 import javax.swing.JFrame;
 
 /**
@@ -37,6 +38,7 @@ public class feeFrame extends javax.swing.JFrame {
         editFeeBtn = new javax.swing.JButton();
         payFeebtn = new javax.swing.JButton();
         thatHaveNotPaid = new javax.swing.JButton();
+        payFeebtn1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -108,6 +110,22 @@ public class feeFrame extends javax.swing.JFrame {
             }
         });
 
+        payFeebtn1.setBackground(new java.awt.Color(99, 230, 190));
+        payFeebtn1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        payFeebtn1.setForeground(new java.awt.Color(33, 37, 41));
+        payFeebtn1.setText("Print Fee");
+        payFeebtn1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(28, 126, 214), 3, true));
+        payFeebtn1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                payFeebtn1MouseClicked(evt);
+            }
+        });
+        payFeebtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                payFeebtn1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -118,7 +136,8 @@ public class feeFrame extends javax.swing.JFrame {
                     .addComponent(editFeeBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(payFeebtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(thatHaveNotPaid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(addFeeBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(addFeeBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(payFeebtn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -132,7 +151,9 @@ public class feeFrame extends javax.swing.JFrame {
                 .addComponent(payFeebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addComponent(thatHaveNotPaid, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(payFeebtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 470));
@@ -204,6 +225,17 @@ public class feeFrame extends javax.swing.JFrame {
         obj.setVisible(true);
     }//GEN-LAST:event_thatHaveNotPaidMouseClicked
 
+    private void payFeebtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payFeebtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_payFeebtn1ActionPerformed
+
+    private void payFeebtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_payFeebtn1MouseClicked
+        Connection con = ConnectionClass.db();
+        FeeReceiptGenerator obj = new FeeReceiptGenerator(con);
+        obj.setVisible(true);
+        
+    }//GEN-LAST:event_payFeebtn1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -248,6 +280,7 @@ public class feeFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JButton payFeebtn;
+    private javax.swing.JButton payFeebtn1;
     private javax.swing.JButton thatHaveNotPaid;
     // End of variables declaration//GEN-END:variables
 }

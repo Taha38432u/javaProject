@@ -32,6 +32,7 @@ public class ResultDisplay extends JFrame {
 
     public ResultDisplay(resultFunctions result) {
         super("Result Details");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.result = result;
 
         // Create a table model

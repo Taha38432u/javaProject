@@ -6,6 +6,7 @@ package com.mycompany.school;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 /**
@@ -19,6 +20,7 @@ public class addResultSubjects extends javax.swing.JFrame {
      */
     public addResultSubjects() {
         initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**

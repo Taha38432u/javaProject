@@ -129,7 +129,7 @@ public class resultMainForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void WeeklyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WeeklyMouseClicked
-      
+
     }//GEN-LAST:event_WeeklyMouseClicked
 
     private void WeeklyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WeeklyActionPerformed
@@ -138,7 +138,8 @@ public class resultMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_WeeklyActionPerformed
 
     private void MonthlyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MonthlyMouseClicked
-        
+        ResultViewer obj = new ResultViewer();
+        obj.setVisible(true);
     }//GEN-LAST:event_MonthlyMouseClicked
 
     private void MonthlyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MonthlyActionPerformed

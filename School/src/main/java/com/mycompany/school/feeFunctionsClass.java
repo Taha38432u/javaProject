@@ -118,6 +118,7 @@ public class feeFunctionsClass {
             ps.setInt(4, fee.getFee());
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Fee record inserted successfully");
+            updateTotalFee();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -160,6 +161,7 @@ public class feeFunctionsClass {
 
             if (updatedRows > 0) {
                 JOptionPane.showMessageDialog(null, "Fee information updated successfully");
+                updateTotalFee();
             } else {
                 JOptionPane.showMessageDialog(null, "No fee record found with the specified roll number and class");
             }
@@ -178,7 +180,7 @@ public class feeFunctionsClass {
             ps.setInt(1, fee.getRecordStudentRollNo());
             ps.setString(2, fee.getRecordStudentName());
             ps.setString(3, fee.getRecordStudentClass());
-           ps.setDate(4, java.sql.Date.valueOf(fee.getRecordPayDate()));
+            ps.setDate(4, java.sql.Date.valueOf(fee.getRecordPayDate()));
             ps.setString(5, fee.getRecordPaid());
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Fee record inserted successfully");
@@ -213,6 +215,32 @@ public class feeFunctionsClass {
             e.printStackTrace();
         }
         return fee;
+    }
+
+    public void updateTotalFee() {
+        String selectQuery = "SELECT SUM(fee) AS totalFee FROM studentsFee";
+        String updateQuery = "UPDATE total SET totalFee = ? WHERE id = 1";
+
+        try {
+            Connection con = ConnectionClass.db();
+            PreparedStatement selectStatement = con.prepareStatement(selectQuery);
+            ResultSet resultSet = selectStatement.executeQuery();
+
+            // Get the total fee from the result set
+            int totalFee = 0;
+            if (resultSet.next()) {
+                totalFee = resultSet.getInt("totalFee");
+            }
+
+            // Update the total fee in the total table
+            PreparedStatement updateStatement = con.prepareStatement(updateQuery);
+            updateStatement.setInt(1, totalFee);
+            updateStatement.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Total fee updated successfully");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
 
 }

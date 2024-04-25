@@ -42,7 +42,6 @@ public class Dashboard extends javax.swing.JFrame {
         studentMainBtn = new javax.swing.JButton();
         attendacneMainButton = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        jButton14 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         clsBtn = new javax.swing.JButton();
@@ -66,7 +65,7 @@ public class Dashboard extends javax.swing.JFrame {
         updateStudents = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jButton13 = new javax.swing.JButton();
-        jTextField3 = new javax.swing.JTextField();
+        setTotalFee = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         updateFee = new javax.swing.JButton();
 
@@ -172,16 +171,10 @@ public class Dashboard extends javax.swing.JFrame {
         ToolBarPanel.add(attendacneMainButton);
         attendacneMainButton.setBounds(30, 430, 100, 40);
 
+        jLabel10.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\com\\mycompany\\Images\\blank-profile-picture-973460_640(1).png"));
         jLabel10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         ToolBarPanel.add(jLabel10);
-        jLabel10.setBounds(20, 20, 120, 130);
-
-        jButton14.setBackground(new java.awt.Color(204, 204, 204));
-        jButton14.setText("Upload");
-        jButton14.setToolTipText("");
-        jButton14.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 2, true));
-        ToolBarPanel.add(jButton14);
-        jButton14.setBounds(30, 160, 100, 20);
+        jLabel10.setBounds(20, 20, 120, 120);
 
         BackgroundPanel.add(ToolBarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 160, 570));
 
@@ -358,21 +351,21 @@ public class Dashboard extends javax.swing.JFrame {
         jButton13.setBackground(new java.awt.Color(153, 255, 153));
         jButton13.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jButton13.setForeground(new java.awt.Color(0, 0, 153));
-        jButton13.setText("Total Fee Collected");
+        jButton13.setText("Total Fee");
         jButton13.setToolTipText("");
         jButton13.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 153), 1, true));
         jPanel3.add(jButton13);
         jButton13.setBounds(10, 20, 160, 40);
 
-        jTextField3.setBackground(new java.awt.Color(153, 255, 153));
-        jTextField3.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(0, 0, 153));
-        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField3.setText("50,000");
-        jTextField3.setToolTipText("");
-        jTextField3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 153), 1, true));
-        jPanel3.add(jTextField3);
-        jTextField3.setBounds(120, 80, 100, 40);
+        setTotalFee.setBackground(new java.awt.Color(153, 255, 153));
+        setTotalFee.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        setTotalFee.setForeground(new java.awt.Color(0, 0, 153));
+        setTotalFee.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        setTotalFee.setText("50,000");
+        setTotalFee.setToolTipText("");
+        setTotalFee.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 153), 1, true));
+        jPanel3.add(setTotalFee);
+        setTotalFee.setBounds(120, 80, 100, 40);
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\com\\mycompany\\Images\\Fee.png"));
@@ -383,6 +376,11 @@ public class Dashboard extends javax.swing.JFrame {
         updateFee.setForeground(new java.awt.Color(0, 0, 204));
         updateFee.setText("Update");
         updateFee.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+        updateFee.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateFeeMouseClicked(evt);
+            }
+        });
         jPanel3.add(updateFee);
         updateFee.setBounds(10, 90, 70, 30);
 
@@ -506,6 +504,27 @@ public class Dashboard extends javax.swing.JFrame {
         setTotalStudents.setText(total);
     }//GEN-LAST:event_updateStudentsMouseClicked
 
+    private void updateFeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateFeeMouseClicked
+       feeFunctionsClass obj = new feeFunctionsClass();
+        obj.updateTotalFee();
+        int totalFee = 0;
+        String query = "SELECT totalFee FROM total WHERE id = 1";
+
+        try {
+            Connection con = ConnectionClass.db();
+            PreparedStatement pstmt = con.prepareStatement(query);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                totalFee = rs.getInt("totalFee");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        String total = String.valueOf(totalFee);
+        setTotalFee.setText(total);
+    }//GEN-LAST:event_updateFeeMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -552,7 +571,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton feeMainBtn;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
@@ -569,8 +587,8 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JButton resultBtn;
+    private javax.swing.JTextField setTotalFee;
     private javax.swing.JTextField setTotalSalary;
     private javax.swing.JTextField setTotalStudents;
     private javax.swing.JButton stdBtn;

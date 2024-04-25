@@ -123,7 +123,7 @@ create  table total
 	totalStudents int not null,
 	totalFee int not null,
 );
-
+insert into total values (0,1,0);
 select *from total;
 select *from employeeSalary;
 select *from Result;
@@ -132,7 +132,7 @@ select *from teacherInfo;
 select *from subjectInfo;
 select *from TeacherAttendance;
 select *from studentsFee;
-select *from recordsOfFee;
+SELECT * FROM recordsOfFee WHERE studentClass = 'Kg' AND MONTH(payDate) = 04 AND YEAR(payDate) = 2024;
 
 
 
@@ -145,3 +145,18 @@ delete from employeeSalary;
 delete from TeacherAttendance;
 delete from studentsFee;
 delete from recordsOfFee;
+
+
+create table passwordLogin
+
+(
+	id int identity(1,1) primary key,
+	passwordAdmin varchar(50) not null,
+	userName varchar(50) not null,
+	defaultPassword varchar(50) not null 
+);
+
+drop table passwordLogin;
+insert into passwordLogin values ('riskofrain2','bandit','admin');
+
+select *from passwordLogin;

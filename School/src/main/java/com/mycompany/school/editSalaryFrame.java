@@ -4,6 +4,8 @@
  */
 package com.mycompany.school;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Taha Rasheed
@@ -15,6 +17,7 @@ public class editSalaryFrame extends javax.swing.JFrame {
      */
     public editSalaryFrame() {
         initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -187,8 +190,7 @@ public class editSalaryFrame extends javax.swing.JFrame {
 
     private void fetchIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fetchIdMouseClicked
         employeeSalaryFunctions obj = employeeSalaryFunctions.getEmployeeSalaryByEmployeeId(Integer.parseInt(getId.getText()));
-        if(obj!=null)
-        {
+        if (obj != null) {
             getSalary.setText(String.valueOf(obj.getSalary()));
         }
     }//GEN-LAST:event_fetchIdMouseClicked
