@@ -8,7 +8,6 @@ com\mycompany\school\resultMainForm$3.class
 com\mycompany\school\salaryMainFrame$7.class
 com\mycompany\school\studentsFrame$4.class
 com\mycompany\school\updateTeacher$6.class
-com\mycompany\school\addSubjectsFrame$7.class
 com\mycompany\school\salaryMainFrame.class
 com\mycompany\school\addTeacher$5.class
 com\mycompany\school\attendanceFrame$5.class
@@ -25,7 +24,6 @@ com\mycompany\school\payFeeFrame$4.class
 com\mycompany\school\addSubjectsFrame$1.class
 com\mycompany\school\editSalaryFrame$4.class
 com\mycompany\school\editSubjectFrame$10.class
-com\mycompany\school\addSubjectsFrame$6.class
 com\mycompany\school\addResultSubjects$21.class
 com\mycompany\school\addResultSubjects.class
 com\mycompany\school\addResultSubjects$35.class
@@ -83,7 +81,6 @@ com\mycompany\school\addResultSubjects$15.class
 com\mycompany\school\resultMainForm$4.class
 com\mycompany\school\resultMainForm.class
 com\mycompany\school\addStudent$4.class
-com\mycompany\school\subjectFrame$7.class
 com\mycompany\school\FeeInfoFrame$1.class
 com\mycompany\school\addFeeFrame.class
 com\mycompany\school\studentsFrame$6.class
@@ -128,7 +125,6 @@ com\mycompany\school\testing.class
 com\mycompany\school\addResultSubjects$24.class
 com\mycompany\school\teacherFrame$3.class
 com\mycompany\school\salaryMainFrame$5.class
-com\mycompany\school\subjectFrame$6.class
 com\mycompany\school\markAttendance$3.class
 com\mycompany\school\addFeeFrame$4.class
 com\mycompany\school\addResultSubjects$11.class
@@ -168,7 +164,6 @@ com\mycompany\school\subjectFrame$4.class
 com\mycompany\school\addResultSubjects$10.class
 com\mycompany\school\addResultSubjects$30.class
 com\mycompany\school\addResultSubjects$9.class
-com\mycompany\school\addSubjectsFrame$5.class
 com\mycompany\school\employeeSalaryFunctions.class
 com\mycompany\school\addResultSubjects$33.class
 com\mycompany\school\addResultSubjects$23.class

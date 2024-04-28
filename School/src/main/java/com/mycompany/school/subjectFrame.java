@@ -33,7 +33,6 @@ public class subjectFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
-        viewInfoBtn2 = new javax.swing.JButton();
         addSubject = new javax.swing.JButton();
         updSubject = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -71,22 +70,6 @@ public class subjectFrame extends javax.swing.JFrame {
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel8.setBackground(new java.awt.Color(33, 37, 41));
-
-        viewInfoBtn2.setBackground(new java.awt.Color(99, 230, 190));
-        viewInfoBtn2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        viewInfoBtn2.setForeground(new java.awt.Color(33, 37, 41));
-        viewInfoBtn2.setText("View Info");
-        viewInfoBtn2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(28, 126, 214), 3, true));
-        viewInfoBtn2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                viewInfoBtn2MouseClicked(evt);
-            }
-        });
-        viewInfoBtn2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewInfoBtn2ActionPerformed(evt);
-            }
-        });
 
         addSubject.setBackground(new java.awt.Color(99, 230, 190));
         addSubject.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -126,22 +109,19 @@ public class subjectFrame extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(updSubject, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(addSubject, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(viewInfoBtn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(addSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updSubject))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addComponent(viewInfoBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(99, 99, 99)
                 .addComponent(addSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGap(41, 41, 41)
                 .addComponent(updSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(302, Short.MAX_VALUE))
+                .addContainerGap(370, Short.MAX_VALUE))
         );
 
         jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
@@ -154,14 +134,6 @@ public class subjectFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void viewInfoBtn2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewInfoBtn2MouseClicked
-        
-    }//GEN-LAST:event_viewInfoBtn2MouseClicked
-
-    private void viewInfoBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewInfoBtn2ActionPerformed
-        
-    }//GEN-LAST:event_viewInfoBtn2ActionPerformed
 
     private void addSubjectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addSubjectMouseClicked
         addSubjectsFrame sub = new addSubjectsFrame();
@@ -224,6 +196,5 @@ public class subjectFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JButton updSubject;
-    private javax.swing.JButton viewInfoBtn2;
     // End of variables declaration//GEN-END:variables
 }
