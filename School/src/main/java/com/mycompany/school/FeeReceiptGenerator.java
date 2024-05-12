@@ -95,109 +95,122 @@ public class FeeReceiptGenerator extends JFrame {
     }
 
     private void generateReceiptPDF(ResultSet rs) throws IOException, SQLException {
-        try (PDDocument document = new PDDocument()) {
-            // Create a new page
-            PDPage page = new PDPage();
-            document.addPage(page);
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Save Fee Receipt");
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 
-            // Get the page dimensions
-            PDRectangle pageSize = page.getMediaBox();
-            float pageWidth = pageSize.getWidth();
-            float pageHeight = pageSize.getHeight();
-            int rollNo = rs.getInt("studentRollNo");
-            String studentClass = rs.getString("studentClass");
-            int totalFee = fetchFeeFromDatabase(rollNo, studentClass);
+        int userSelection = fileChooser.showSaveDialog(this);
 
-            // Create a content stream
-            try (PDPageContentStream contentStream = new PDPageContentStream(document, page)) {
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            String filePath = fileChooser.getSelectedFile().getAbsolutePath();
+            try (PDDocument document = new PDDocument()) {
+                // Create a new page
+                PDPage page = new PDPage();
+                document.addPage(page);
 
-                // Set up font and style for school name
-                contentStream.setFont(PDType1Font.HELVETICA_BOLD, 20);
-                contentStream.setNonStrokingColor(Color.BLUE); // Blue color for school name
-                float schoolNameWidth = PDType1Font.HELVETICA_BOLD.getStringWidth("Innovative School") / 1000f * 20; // Width of the school name text
-                float schoolNameX = (pageWidth - schoolNameWidth) / 2; // Centering the school name horizontally
-                float schoolNameY = pageHeight - 50; // Top margin for the school name
+                // Get the page dimensions
+                PDRectangle pageSize = page.getMediaBox();
+                float pageWidth = pageSize.getWidth();
+                float pageHeight = pageSize.getHeight();
+                int rollNo = rs.getInt("studentRollNo");
+                String studentClass = rs.getString("studentClass");
+                int totalFee = fetchFeeFromDatabase(rollNo, studentClass);
 
-                // Draw school name
-                contentStream.beginText();
-                contentStream.newLineAtOffset(schoolNameX, schoolNameY);
-                contentStream.showText("Innovative School");
-                contentStream.endText();
+                // Create a content stream
+                try (PDPageContentStream contentStream = new PDPageContentStream(document, page)) {
+                    // Set up font and style for school name
+                    contentStream.setFont(PDType1Font.HELVETICA_BOLD, 20);
+                    contentStream.setNonStrokingColor(Color.BLUE); // Blue color for school name
+                    float schoolNameWidth = PDType1Font.HELVETICA_BOLD.getStringWidth("Innovative School") / 1000f * 20; // Width of the school name text
+                    float schoolNameX = (pageWidth - schoolNameWidth) / 2; // Centering the school name horizontally
+                    float schoolNameY = pageHeight - 50; // Top margin for the school name
 
-                // Set up font and style for title
-                contentStream.setFont(PDType1Font.HELVETICA_BOLD, 24);
-                float titleWidth = PDType1Font.HELVETICA_BOLD.getStringWidth("Fee Receipt") / 1000f * 24; // Width of the title text
-                float titleX = (pageWidth - titleWidth) / 2; // Centering the title horizontally
-                float titleY = schoolNameY - 40; // Margin below the school name for the title
+                    // Draw school name
+                    contentStream.beginText();
+                    contentStream.newLineAtOffset(schoolNameX, schoolNameY);
+                    contentStream.showText("Innovative School");
+                    contentStream.endText();
 
-                // Draw title
-                contentStream.setNonStrokingColor(Color.BLACK); // Black color for title
-                contentStream.beginText();
-                contentStream.newLineAtOffset(titleX, titleY);
-                contentStream.showText("Fee Receipt");
-                contentStream.endText();
+                    // Set up font and style for title
+                    contentStream.setFont(PDType1Font.HELVETICA_BOLD, 24);
+                    float titleWidth = PDType1Font.HELVETICA_BOLD.getStringWidth("Fee Receipt") / 1000f * 24; // Width of the title text
+                    float titleX = (pageWidth - titleWidth) / 2; // Centering the title horizontally
+                    float titleY = schoolNameY - 40; // Margin below the school name for the title
 
-                // Set up font and style for table headers
-                contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
-                float startX = 50; // Left margin for details
-                float startY = titleY - 40; // Margin below the title for details
-                float cellWidth = (pageWidth - 100) / 2; // Width of each cell
-                float cellHeight = 20; // Height of each cell
-                float rowHeight = 25; // Height of each row
+                    // Draw title
+                    contentStream.setNonStrokingColor(Color.BLACK); // Black color for title
+                    contentStream.beginText();
+                    contentStream.newLineAtOffset(titleX, titleY);
+                    contentStream.showText("Fee Receipt");
+                    contentStream.endText();
 
-                // Draw table headers
-                contentStream.setNonStrokingColor(Color.BLACK); // Black color for table headers
-                contentStream.beginText();
-                contentStream.newLineAtOffset(startX, startY);
-                contentStream.showText("Attribute");
-                contentStream.newLineAtOffset(cellWidth, 0);
-                contentStream.showText("Value");
-                contentStream.endText();
+                    // Set up font and style for table headers
+                    contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
+                    float startX = 50; // Left margin for details
+                    float startY = titleY - 40; // Margin below the title for details
+                    float cellWidth = (pageWidth - 100) / 2; // Width of each cell
+                    float cellHeight = 20; // Height of each cell
+                    float rowHeight = 25; // Height of each row
 
-                // Draw horizontal line below table headers
-                contentStream.moveTo(startX, startY - rowHeight);
-                contentStream.lineTo(startX + cellWidth * 2, startY - rowHeight);
-                contentStream.stroke();
+                    // Draw table headers
+                    contentStream.setNonStrokingColor(Color.BLACK); // Black color for table headers
+                    contentStream.beginText();
+                    contentStream.newLineAtOffset(startX, startY);
+                    contentStream.showText("Attribute");
+                    contentStream.newLineAtOffset(cellWidth, 0);
+                    contentStream.showText("Value");
+                    contentStream.endText();
 
-                // Set up font and style for table content
-                contentStream.setFont(PDType1Font.HELVETICA, 12);
-                float contentX = startX;
-                float contentY = startY - rowHeight - cellHeight;
+                    // Draw horizontal line below table headers
+                    contentStream.moveTo(startX, startY - rowHeight);
+                    contentStream.lineTo(startX + cellWidth * 2, startY - rowHeight);
+                    contentStream.stroke();
 
-                // Write student details
-                writeTableCell(contentStream, contentX, contentY, "Student Name", rs.getString("studentName"), cellWidth, cellHeight);
-                contentY -= cellHeight;
-                writeTableCell(contentStream, contentX, contentY, "Roll No", String.valueOf(rs.getInt("studentRollNo")), cellWidth, cellHeight);
-                contentY -= cellHeight;
-                writeTableCell(contentStream, contentX, contentY, "Class", rs.getString("studentClass"), cellWidth, cellHeight);
-                contentY -= cellHeight;
-                writeTableCell(contentStream, contentX, contentY, "Total Fee", String.valueOf(totalFee), cellWidth, cellHeight); // Example total fee
-                contentY -= cellHeight;
-                writeTableCell(contentStream, contentX, contentY, "Paid Date", String.valueOf(rs.getDate("payDate")), cellWidth, cellHeight);
-                contentY -= cellHeight;
+                    // Set up font and style for table content
+                    contentStream.setFont(PDType1Font.HELVETICA, 12);
+                    float contentX = startX;
+                    float contentY = startY - rowHeight - cellHeight;
 
-                // Add important notes
-                contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
-                contentStream.setNonStrokingColor(Color.RED); // Red color for important notes
-                float noteY = 50; // Margin from the bottom for notes
-                contentStream.beginText();
-                contentStream.newLineAtOffset(50, noteY);
-                contentStream.showText("Important Notes:");
-                contentStream.newLineAtOffset(0, -20);
-                contentStream.setFont(PDType1Font.HELVETICA, 12);
-                contentStream.setNonStrokingColor(Color.BLACK); // Black color for notes content
-                contentStream.showText("1) Keep this Receipt Safe");
-                contentStream.newLineAtOffset(0, -20);
-                contentStream.showText("2) Additional notes here...");
-                contentStream.endText();
+                    // Write student details
+                    writeTableCell(contentStream, contentX, contentY, "Student Name", rs.getString("studentName"), cellWidth, cellHeight);
+                    contentY -= cellHeight;
+                    writeTableCell(contentStream, contentX, contentY, "Roll No", String.valueOf(rs.getInt("studentRollNo")), cellWidth, cellHeight);
+                    contentY -= cellHeight;
+                    writeTableCell(contentStream, contentX, contentY, "Class", rs.getString("studentClass"), cellWidth, cellHeight);
+                    contentY -= cellHeight;
+                    writeTableCell(contentStream, contentX, contentY, "Total Fee", String.valueOf(totalFee), cellWidth, cellHeight); // Example total fee
+                    contentY -= cellHeight;
+                    writeTableCell(contentStream, contentX, contentY, "Paid Date", String.valueOf(rs.getDate("payDate")), cellWidth, cellHeight);
+                    contentY -= cellHeight;
 
-            } // Close the PDPageContentStream here
+                    // Add important notes
+                    contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
+                    contentStream.setNonStrokingColor(Color.RED); // Red color for important notes
+                    float noteY = contentY - 20; // Position just below the student fee record
+                    contentStream.beginText();
+                    contentStream.newLineAtOffset(50, noteY);
+                    contentStream.showText("Important Notes:");
+                    contentStream.newLineAtOffset(0, -20);
+                    contentStream.setFont(PDType1Font.HELVETICA, 12);
+                    contentStream.setNonStrokingColor(Color.BLACK); // Black color for notes content
+                    contentStream.showText("1) Keep this Receipt Safe");
+                    contentStream.newLineAtOffset(0, -20);
+                    contentStream.showText("2) This receipt is a proof of payment and should be retained for future reference.");
+                    contentStream.newLineAtOffset(0, -20);
+                    contentStream.showText("3) In case of any discrepancy, contact the school administration immediately at [Admin Phone/Email].");
+                    contentStream.newLineAtOffset(0, -20);
+                    contentStream.showText("4) The school reserves the right to verify the payment details against its records.");
+                    contentStream.newLineAtOffset(0, -20);
+                    contentStream.showText("5) This receipt does not guarantee enrollment or admission and is subject to verification.");
+                    contentStream.endText();
+                }
 
-            // Save the document
-            document.save("fee_receipt.pdf");
+                // Save the document to the specified file path
+                document.save(filePath);
 
-            // Inform the user
-            JOptionPane.showMessageDialog(this, "Fee receipt saved as fee_receipt.pdf");
+                // Inform the user
+                JOptionPane.showMessageDialog(this, "Fee receipt saved as: " + filePath);
+            }
         }
     }
 

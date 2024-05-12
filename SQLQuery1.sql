@@ -17,7 +17,9 @@ create table studentInfo
     profession VARCHAR(50) NOT NULL,
     contactNo1 VARCHAR(20) NOT NULL,
     contactNo2 VARCHAR(20),
-); 
+);
+ALTER TABLE studentInfo
+ADD CONSTRAINT UC_RollNo UNIQUE (rollNo);
 
 CREATE TABLE teacherInfo (
     id INT PRIMARY KEY IDENTITY(1,1),
@@ -67,7 +69,8 @@ create table recordsOfFee
 );
 
 -- Table to store student test results
-
+select *from recordsOfFee
+delete from recordsOfFee
 
 CREATE TABLE Result (
     resultId INT ,
@@ -108,6 +111,9 @@ CREATE TABLE Result (
 	obtainedMarks int,
 	obtainedPercentage int
 );
+ALTER TABLE Result
+ADD CONSTRAINT FK_StudentRollNo FOREIGN KEY (studentRollNo) REFERENCES studentInfo(rollNo);
+
 
 create table employeeSalary 
 (

@@ -36,7 +36,6 @@ public class teacherFrame extends javax.swing.JFrame {
         viewInfoBtn2 = new javax.swing.JButton();
         addTeacherBtn2 = new javax.swing.JButton();
         updateTeacherBtn2 = new javax.swing.JButton();
-        deleteTeacherBtn2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -118,17 +117,6 @@ public class teacherFrame extends javax.swing.JFrame {
             }
         });
 
-        deleteTeacherBtn2.setBackground(new java.awt.Color(99, 230, 190));
-        deleteTeacherBtn2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        deleteTeacherBtn2.setForeground(new java.awt.Color(33, 37, 41));
-        deleteTeacherBtn2.setText("Delete Teacher");
-        deleteTeacherBtn2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(28, 126, 214), 3, true));
-        deleteTeacherBtn2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteTeacherBtn2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -137,7 +125,6 @@ public class teacherFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(updateTeacherBtn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(deleteTeacherBtn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(addTeacherBtn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(viewInfoBtn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -151,9 +138,7 @@ public class teacherFrame extends javax.swing.JFrame {
                 .addComponent(addTeacherBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(updateTeacherBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(deleteTeacherBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addContainerGap(222, Short.MAX_VALUE))
         );
 
         jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -202,10 +187,6 @@ public class teacherFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_updateTeacherBtn2ActionPerformed
 
-    private void deleteTeacherBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteTeacherBtn2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteTeacherBtn2ActionPerformed
-
     private void viewInfoBtn2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewInfoBtn2MouseClicked
         teacherFunctionsClass.viewTeachersByAttributes();
     }//GEN-LAST:event_viewInfoBtn2MouseClicked
@@ -247,7 +228,6 @@ public class teacherFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addTeacherBtn2;
-    private javax.swing.JButton deleteTeacherBtn2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;

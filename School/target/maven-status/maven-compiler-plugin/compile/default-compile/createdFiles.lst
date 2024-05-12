@@ -62,7 +62,6 @@ com\mycompany\school\feeFrame$1.class
 com\mycompany\school\resultMainForm$2.class
 com\mycompany\school\salaryMainFrame$6.class
 com\mycompany\school\allStudentFunctionClass$2.class
-com\mycompany\school\studentsFrame$8.class
 com\mycompany\school\editFeeFrame$2.class
 com\mycompany\school\IOException.class
 com\mycompany\school\addSalaryFrame$4.class
@@ -81,6 +80,7 @@ com\mycompany\school\addResultSubjects$15.class
 com\mycompany\school\resultMainForm$4.class
 com\mycompany\school\resultMainForm.class
 com\mycompany\school\addStudent$4.class
+com\mycompany\school\Dashboard$18.class
 com\mycompany\school\FeeInfoFrame$1.class
 com\mycompany\school\addFeeFrame.class
 com\mycompany\school\studentsFrame$6.class
@@ -147,7 +147,7 @@ com\mycompany\school\ConnectionClass.class
 com\mycompany\school\attendanceFrame$3.class
 com\mycompany\school\editFeeFrame$1.class
 com\mycompany\school\editFeeFrame$7.class
-com\mycompany\school\teacherFrame$8.class
+com\mycompany\school\allStudentFunctionClass$3.class
 com\mycompany\school\addResultSubjects$17.class
 com\mycompany\school\subjectFrame$1.class
 com\mycompany\school\teacherFrame$5.class
@@ -189,7 +189,6 @@ com\mycompany\school\feeFrame$9.class
 com\mycompany\school\editSubjectFrame$5.class
 com\mycompany\school\addResultSubjects$7.class
 com\mycompany\school\addResultSubjects$31.class
-com\mycompany\school\updateTeacher$8.class
 com\mycompany\school\salaryMainFrame$2.class
 com\mycompany\school\addSubjectsFrame$3.class
 com\mycompany\school\addResultSubjects$25.class
@@ -197,7 +196,6 @@ com\mycompany\school\FeeReceiptGenerator$1.class
 com\mycompany\school\addSubjectsFrame$2.class
 com\mycompany\school\salaryMainFrame$1.class
 com\mycompany\school\subjectFrame$2.class
-com\mycompany\school\updateStudent$7.class
 com\mycompany\school\AttendanceStatusFrame.class
 com\mycompany\school\addResultSubjects$6.class
 com\mycompany\school\editSubjectFrame$14.class

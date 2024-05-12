@@ -25,11 +25,10 @@ public class FeeInfoFrame extends JFrame {
     private JTable table;
 
     public FeeInfoFrame() {
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setTitle("Fee Records");
         setSize(600, 400);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         // Create class options
         String[] classOptions = {"Kg", "Nursery", "Prep", "Class 1", "Class 2", "Class 3", "Class 4", "Class 5", "Class 6", "Class 7", "Class 8", "Class 9", "Class 10"};
         classComboBox = new JComboBox<>(classOptions);
@@ -42,7 +41,7 @@ public class FeeInfoFrame extends JFrame {
         classPanel.add(monthComboBox);
         add(classPanel, BorderLayout.NORTH);
 
-        String[] columns = {"Roll No", "Student Name", "Pay Date", "Payment Status","Fee"};
+        String[] columns = {"Roll No", "Student Name", "Pay Date", "Payment Status", "Fee"};
         DefaultTableModel model = new DefaultTableModel(columns, 0);
         table = new JTable(model);
 
@@ -90,6 +89,7 @@ public class FeeInfoFrame extends JFrame {
                 return null;
         }
     }
+
     private int fetchFeeFromDatabase(int rollNo, String studentClass) throws SQLException {
         int totalFee = 0;
         try (Connection con = ConnectionClass.db()) {
@@ -106,6 +106,7 @@ public class FeeInfoFrame extends JFrame {
     }
 
     public void viewFeeInfo(String studentClass, String selectedMonth) {
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         model.setRowCount(0); // Clear previous data
         int month = Integer.parseInt(selectedMonth);

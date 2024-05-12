@@ -24,7 +24,7 @@ public class ResultViewer extends JFrame {
 
     public ResultViewer() {
         super("Result Viewer");
-
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         // Initialize components
         classLabel = new JLabel("Class:");
         classField = new JTextField(10);
@@ -55,13 +55,14 @@ public class ResultViewer extends JFrame {
 
         // Set frame properties
         setSize(300, 150);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null); // Center the frame
         setVisible(true);
     }
 
     private void showResult() {
         // Get input values
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         String className = classField.getText();
         int rollNo = Integer.parseInt(rollNoField.getText());
         int resultId = Integer.parseInt(resultIdField.getText());

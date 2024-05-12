@@ -36,8 +36,7 @@ public class studentsFrame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         addStudentBtn = new javax.swing.JButton();
         udpateStudentBtn = new javax.swing.JButton();
-        deleteStudent = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        parentInfo = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -112,25 +111,15 @@ public class studentsFrame extends javax.swing.JFrame {
             }
         });
 
-        deleteStudent.setBackground(new java.awt.Color(99, 230, 190));
-        deleteStudent.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        deleteStudent.setForeground(new java.awt.Color(33, 37, 41));
-        deleteStudent.setText("Delete Student");
-        deleteStudent.addMouseListener(new java.awt.event.MouseAdapter() {
+        parentInfo.setBackground(new java.awt.Color(99, 230, 190));
+        parentInfo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        parentInfo.setForeground(new java.awt.Color(33, 37, 41));
+        parentInfo.setText("Parent Info");
+        parentInfo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                deleteStudentMouseClicked(evt);
+                parentInfoMouseClicked(evt);
             }
         });
-        deleteStudent.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteStudentActionPerformed(evt);
-            }
-        });
-
-        jButton2.setBackground(new java.awt.Color(99, 230, 190));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(33, 37, 41));
-        jButton2.setText("Parent Info");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -138,7 +127,6 @@ public class studentsFrame extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(deleteStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel4Layout.createSequentialGroup()
                             .addGap(20, 20, 20)
@@ -147,7 +135,7 @@ public class studentsFrame extends javax.swing.JFrame {
                             .addContainerGap()
                             .addComponent(udpateStudentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+                        .addComponent(parentInfo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
@@ -155,16 +143,14 @@ public class studentsFrame extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap(45, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(parentInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addComponent(addStudentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(udpateStudentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(deleteStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(141, 141, 141))
+                .addGap(224, 224, 224))
         );
 
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -215,13 +201,10 @@ public class studentsFrame extends javax.swing.JFrame {
         updStd.show();// TODO add your handling code here:
     }//GEN-LAST:event_udpateStudentBtnActionPerformed
 
-    private void deleteStudentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteStudentMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteStudentMouseClicked
-
-    private void deleteStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteStudentActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteStudentActionPerformed
+    private void parentInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_parentInfoMouseClicked
+        allStudentFunctionClass obj = new allStudentFunctionClass();
+        obj.parentInfo();
+    }//GEN-LAST:event_parentInfoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -260,14 +243,13 @@ public class studentsFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addStudentBtn;
-    private javax.swing.JButton deleteStudent;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JButton parentInfo;
     private javax.swing.JButton udpateStudentBtn;
     // End of variables declaration//GEN-END:variables
 }

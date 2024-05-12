@@ -103,6 +103,9 @@ public class feeFrame extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 thatHaveNotPaidMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                thatHaveNotPaidMouseEntered(evt);
+            }
         });
         thatHaveNotPaid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,6 +238,10 @@ public class feeFrame extends javax.swing.JFrame {
         obj.setVisible(true);
         
     }//GEN-LAST:event_payFeebtn1MouseClicked
+
+    private void thatHaveNotPaidMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thatHaveNotPaidMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_thatHaveNotPaidMouseEntered
 
     /**
      * @param args the command line arguments

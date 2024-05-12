@@ -9,7 +9,6 @@ package com.mycompany.school;
  * @author Taha Rasheed
  */
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;

@@ -22,7 +22,7 @@ public class ConnectionClass {
             String conn = "jdbc:sqlserver://localhost:1433; databaseName=school;user=taha;password=taha;encrypt=true;trustServerCertificate=true";
             con = DriverManager.getConnection(conn);
 
-            JOptionPane.showMessageDialog(null, "Connection Established");
+//            JOptionPane.showMessageDialog(null, "Connection Established");
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);

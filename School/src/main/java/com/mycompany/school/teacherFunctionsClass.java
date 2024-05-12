@@ -13,13 +13,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JCheckBox;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
+import javax.swing.*;
+
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -309,7 +304,7 @@ public class teacherFunctionsClass {
                             String columnName = model.getColumnName(i);
                             switch (columnName) {
                                 case "Id" ->
-                                    row[i] = rs.getInt("id");
+                                    row[i] = rs.getInt("employeeId");
                                 case "First Name" ->
                                     row[i] = rs.getString("firstName");
                                 case "Last Name" ->

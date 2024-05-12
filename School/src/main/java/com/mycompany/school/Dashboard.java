@@ -231,6 +231,11 @@ public class Dashboard extends javax.swing.JFrame {
                 stdBtnMouseClicked(evt);
             }
         });
+        stdBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stdBtnActionPerformed(evt);
+            }
+        });
         BackgroundPanel.add(stdBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, 110, 40));
 
         resultBtn.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
@@ -524,6 +529,10 @@ public class Dashboard extends javax.swing.JFrame {
         String total = String.valueOf(totalFee);
         setTotalFee.setText(total);
     }//GEN-LAST:event_updateFeeMouseClicked
+
+    private void stdBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stdBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stdBtnActionPerformed
 
     /**
      * @param args the command line arguments

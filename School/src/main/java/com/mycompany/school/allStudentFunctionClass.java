@@ -13,14 +13,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+
+import javax.swing.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -454,6 +449,73 @@ public class allStudentFunctionClass {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+    }
+
+    public static void parentInfo() {
+        JFrame frame = new JFrame("Parent Information by Class");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setSize(800, 600);
+        frame.setLocationRelativeTo(null);
+
+        JPanel panel = new JPanel(new BorderLayout());
+        frame.add(panel);
+
+        // ComboBox to select class
+        JComboBox<String> classComboBox = new JComboBox<>(new String[]{
+            "KG", "Nursery", "Prep",
+            "Class 1", "Class 2", "Class 3", "Class 4", "Class 5",
+            "Class 6", "Class 7", "Class 8", "Class 9", "Class 10"});
+        classComboBox.setSelectedIndex(0); // Set default selection
+        panel.add(classComboBox, BorderLayout.NORTH);
+
+        DefaultTableModel model = new DefaultTableModel();
+        JTable table = new JTable(model);
+        table.setRowHeight(30); // Set row height
+        table.getTableHeader().setFont(table.getTableHeader().getFont().deriveFont(Font.BOLD)); // Make column headings bold
+        JScrollPane scrollPane = new JScrollPane(table);
+        table.setFillsViewportHeight(true); // Make table fill the viewport height
+        panel.add(scrollPane, BorderLayout.CENTER);
+
+        classComboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selectedClass = (String) classComboBox.getSelectedItem();
+                model.setRowCount(0); // Clear existing rows
+
+                try {
+                    Connection con = ConnectionClass.db();
+                    String query = "SELECT studentFirstName, studentLastName, rollNo, parentFirstName, parentLastName, "
+                            + "profession, contactNo1, contactNo2 FROM studentInfo WHERE class = ?";
+                    PreparedStatement ps = con.prepareStatement(query);
+                    ps.setString(1, selectedClass);
+                    ResultSet rs = ps.executeQuery();
+
+                    // Set column names
+                    model.setColumnIdentifiers(new String[]{"Student Name", "Roll No", "Parent First Name", "Parent Last Name", "Profession", "Contact No 1", "Contact No 2"});
+
+                    // Populate the table with parent information
+                    while (rs.next()) {
+                        Object[] row = new Object[7];
+                        row[0] = rs.getString("studentFirstName") + " " + rs.getString("studentLastName");
+                        row[1] = rs.getInt("rollNo");
+                        row[2] = rs.getString("parentFirstName");
+                        row[3] = rs.getString("parentLastName");
+                        row[4] = rs.getString("profession");
+                        row[5] = rs.getString("contactNo1");
+                        row[6] = rs.getString("contactNo2");
+                        model.addRow(row);
+                    }
+
+                    rs.close();
+                    ps.close();
+                    con.close();
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
+        });
+
+        frame.setVisible(true);
     }
 
 }
