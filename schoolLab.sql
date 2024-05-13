@@ -34,6 +34,20 @@ CREATE TABLE teacherInfo (
     currentPosition VARCHAR(50) NOT NULL,
     employeeId INT UNIQUE NOT NULL check (employeeId >=1)
 );
+CREATE TABLE deletedTeacherInfoLog (
+    id INT PRIMARY KEY,
+    firstName VARCHAR(50) NOT NULL,
+    lastName VARCHAR(50) NOT NULL,
+    dateOfBirth DATE NOT NULL,
+    City VARCHAR(50) NOT NULL,
+    currentAddress VARCHAR(100) NOT NULL,
+    Gender VARCHAR(10) CHECK (Gender IN ('Male', 'Female')) NOT NULL,
+    contactNo VARCHAR(20) NOT NULL check (len(contactNo ) = 11),
+    dateOfJoining DATE NOT NULL,
+    currentPosition VARCHAR(50) NOT NULL,
+    employeeId INT UNIQUE NOT NULL check (employeeId >=1)
+);
+
 
 create table subjectInfo 
 (
@@ -50,25 +64,29 @@ CREATE TABLE TeacherAttendance (
     FOREIGN KEY (teacherId) REFERENCES teacherInfo(employeeId)
 );
 
+
+
 create table studentsFee
 (
 id int primary key identity (1,1),
 studentRollNo int not null,
-studentName varchar(40) not null,
+studentFirstName varchar(40) not null,
+studentLastName varchar(40) not null,
 studentClass varchar(10) not null,
 fee int not null,
 FOREIGN KEY (studentRollNo, studentClass) REFERENCES studentInfo (rollNo, class)
 );
-
+alter table studentsFee add constraint feeCheck check( fee >=0)
+alter table studentsFee add constraint uc unique( studentRollNo,studentClass);
 create table recordsOfFee 
 (
 	id int primary key identity (1,1),
 	studentRollNo int not null,
 	studentName varchar(40) not null,
 	studentClass varchar(10) not null,
-	payDate date , 
+	payDate date default getDate(), 
 	paidOrNot varchar(10) check (paidOrNot in ('Paid','Not Paid')) not null,
-	FOREIGN KEY (studentRollNo, studentClass) REFERENCES studentInfo (rollNo, class)
+	FOREIGN KEY (studentRollNo, studentClass) REFERENCES studentsFee (studentRollNo, studentClass)
 );
 
 -- Table to store student test results
@@ -77,42 +95,44 @@ create table recordsOfFee
 CREATE TABLE Result (
     resultId INT ,
     studentRollNo INT NOT NULL,
-    studentClassId VARCHAR(30) NOT NULL,
+    studentClass VARCHAR(10) NOT NULL,
     subject1Name VARCHAR(50),
-    subject1TotalMarks INT,
-    subject1ObtainedMarks INT,
+    subject1TotalMarks INT CHECK (subject1TotalMarks >= 0),
+    subject1ObtainedMarks INT CHECK (subject1ObtainedMarks >= 0),
     subject2Name VARCHAR(50),
-    subject2TotalMarks INT,
-    subject2ObtainedMarks INT,
+    subject2TotalMarks INT CHECK (subject2TotalMarks >= 0),
+    subject2ObtainedMarks INT CHECK (subject2ObtainedMarks >= 0),
     subject3Name VARCHAR(50),
-    subject3TotalMarks INT,
-    subject3ObtainedMarks INT,
+    subject3TotalMarks INT CHECK (subject3TotalMarks >= 0),
+    subject3ObtainedMarks INT CHECK (subject3ObtainedMarks >= 0),
     subject4Name VARCHAR(50),
-    subject4TotalMarks INT,
-    subject4ObtainedMarks INT,
+    subject4TotalMarks INT CHECK (subject4TotalMarks >= 0),
+    subject4ObtainedMarks INT CHECK (subject4ObtainedMarks >= 0),
     subject5Name VARCHAR(50),
-    subject5TotalMarks INT,
-    subject5ObtainedMarks INT,
+    subject5TotalMarks INT CHECK (subject5TotalMarks >= 0),
+    subject5ObtainedMarks INT CHECK (subject5ObtainedMarks >= 0),
     subject6Name VARCHAR(50),
-    subject6TotalMarks INT,
-    subject6ObtainedMarks INT,
+    subject6TotalMarks INT CHECK (subject6TotalMarks >= 0),
+    subject6ObtainedMarks INT CHECK (subject6ObtainedMarks >= 0),
     subject7Name VARCHAR(50),
-    subject7TotalMarks INT,
-    subject7ObtainedMarks INT,
+    subject7TotalMarks INT CHECK (subject7TotalMarks >= 0),
+    subject7ObtainedMarks INT CHECK (subject7ObtainedMarks >= 0),
     subject8Name VARCHAR(50),
-    subject8TotalMarks INT,
-    subject8ObtainedMarks INT,
+    subject8TotalMarks INT CHECK (subject8TotalMarks >= 0),
+    subject8ObtainedMarks INT CHECK (subject8ObtainedMarks >= 0),
     subject9Name VARCHAR(50),
-    subject9TotalMarks INT,
-    subject9ObtainedMarks INT,
+    subject9TotalMarks INT CHECK (subject9TotalMarks >= 0),
+    subject9ObtainedMarks INT CHECK (subject9ObtainedMarks >= 0),
     subject10Name VARCHAR(50),
-    subject10TotalMarks INT,
-    subject10ObtainedMarks INT,
-	testType varchar(40),
-	totalMarks int,
-	obtainedMarks int,
-	obtainedPercentage int
+    subject10TotalMarks INT CHECK (subject10TotalMarks >= 0),
+    subject10ObtainedMarks INT CHECK (subject10ObtainedMarks >= 0),
+    testType VARCHAR(40),
+    totalMarks INT CHECK (totalMarks >= 0),
+    obtainedMarks INT CHECK (obtainedMarks >= 0),
+    obtainedPercentage INT CHECK (obtainedPercentage >= 0),
+    FOREIGN KEY (studentRollNo, studentClass) REFERENCES studentInfo (rollNo, class)
 );
+
 ALTER TABLE Result
 ADD CONSTRAINT FK_StudentRollNo FOREIGN KEY (studentRollNo) REFERENCES studentInfo(rollNo);
 
@@ -120,8 +140,8 @@ ADD CONSTRAINT FK_StudentRollNo FOREIGN KEY (studentRollNo) REFERENCES studentIn
 create table employeeSalary 
 (
 	id int primary key identity(1,1) not null,
-	employeeId int unique not null,
-	salary int not null,
+	employeeId int unique not null check(employeeId >=0),
+	salary int not null check (salary>=0),
 	FOREIGN KEY (employeeId) REFERENCES teacherInfo(employeeId)
 );
 create  table total 
@@ -149,7 +169,7 @@ select *from teacherInfo;
 select *from subjectInfo;
 select *from TeacherAttendance;
 select *from studentsFee;
-SELECT * FROM recordsOfFee WHERE studentClass = 'Kg' AND MONTH(payDate) = 04 AND YEAR(payDate) = 2024;
+SELECT * FROM recordsOfFee;
 
 
 
@@ -238,6 +258,8 @@ INSERT INTO subjectInfo (subjectName, class) VALUES
 ('Biology', '10th'),
 ('English', '10th');
 
+
+select *from TeacherAttendance;
 INSERT INTO TeacherAttendance (teacherId, attendanceDate, status)
 SELECT id, CONVERT(DATE, GETDATE()), 'P'
 FROM teacherInfo;
@@ -275,4 +297,309 @@ VALUES
 (119, 'Sana Iqbal', '9th', 5500),
 (120, 'Waqar Khan', '11th', 6000);
 
+delete from studentsFee where studentRollNo = 120;
+delete from recordsOfFee where studentRollNo = 120; 
 
+INSERT INTO recordsOfFee (studentRollNo, studentName, studentClass, paidOrNot)
+SELECT studentRollNo, studentName, studentClass, 'Paid'
+FROM studentsFee;
+
+INSERT INTO employeeSalary (employeeId, salary)
+VALUES
+(1, 50000),
+(2, 55000),
+(3, 60000),
+(4, 57000),
+(5, 59000),
+(6, 62000),
+(7, 56000),
+(8, 58000),
+(9, 61000),
+(10, 63000),
+(11, 54000),
+(12, 57000),
+(13, 59000),
+(14, 60000),
+(15, 58000),
+(16, 57000),
+(17, 59000),
+(18, 60000),
+(19, 62000),
+(20, 61000);
+
+
+
+------------------------------------------------------------------------------------------
+-- View
+CREATE VIEW StudentInfoView AS
+SELECT 
+    id,
+    studentFirstName,
+    studentLastName,
+    dateOfBirth,
+    City,
+    gender,
+    dateOfAdmission,
+    class,
+    rollNo,
+    parentFirstName,
+    parentLastName,
+    profession
+FROM studentInfo;
+
+CREATE VIEW TeacherInfoView AS
+SELECT 
+    id,
+    firstName,
+    lastName,
+    dateOfBirth,
+    City,
+    Gender,
+    dateOfJoining,
+    currentPosition,
+    employeeId
+FROM teacherInfo;
+
+CREATE VIEW TeacherAttendanceView AS
+SELECT 
+    TA.teacherId AS Employee Id,
+    TIV.firstName,
+    TIV.lastName,
+    TIV.currentPosition,
+    TA.attendanceDate,
+    TA.status
+FROM TeacherAttendance AS TA
+JOIN TeacherInfoView AS TIV ON TA.teacherId = TIV.employeeId;
+
+create view studentFeeView as 
+select r.studentRollNo ,
+	   r.studentName,
+	   r.studentClass,
+	   f.fee,
+	   r.payDate,
+	   r.paidOrNot
+from recordsOfFee r inner join studentsFee f on r.studentRollNo = f.studentRollNo and r.studentClass = f.studentClass;
+select *from studentFeeView
+create view employeeSalaryView as
+select emp.employeeId,
+	   emp.salary,
+	   tiv.firstName,
+	   tiv.lastName,
+	   tiv.currentPosition
+from employeeSalary emp inner join teacherInfo tiv on emp.employeeId = tiv.employeeId;
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+----- Trigger
+
+CREATE TRIGGER trgStudentInfoInsert
+ON studentInfo
+AFTER INSERT
+AS
+BEGIN
+    IF EXISTS (
+        SELECT 1
+        FROM inserted
+        WHERE dateOfBirth > GETDATE()
+    )
+    BEGIN
+        RAISERROR('Date of birth cannot be in the future.', 16, 1)
+        ROLLBACK TRANSACTION
+        RETURN
+    END
+END;
+
+CREATE TRIGGER trgStudentInfoUpdateDateOfBirth
+ON studentInfo
+AFTER UPDATE
+AS
+BEGIN
+    -- Check if dateOfBirth is being updated to a future date
+    IF EXISTS (
+        SELECT 1
+        FROM inserted
+        WHERE dateOfBirth > GETDATE()
+    )
+    BEGIN
+        RAISERROR('Cannot update date of birth to a future date.', 16, 1)
+        ROLLBACK TRANSACTION
+        RETURN
+    END
+END;
+
+-----------------------------------------------------------------
+-- Employee Trigger
+
+CREATE TRIGGER trgTeacherInfoInsert
+ON teacherInfo
+after INSERT
+AS
+BEGIN
+    -- Validation: Check if dateOfBirth is in the future
+    IF EXISTS (
+        SELECT 1
+        FROM inserted
+        WHERE dateOfBirth > GETDATE()
+    )
+    BEGIN
+        RAISERROR('Date of birth cannot be in the future.', 16, 1)
+        ROLLBACK TRANSACTION
+        RETURN
+    END
+END;
+
+CREATE TRIGGER trgTeacherInfoUpdate
+ON teacherInfo
+after update
+AS
+BEGIN
+    -- Validation: Check if dateOfBirth is in the future
+    IF EXISTS (
+        SELECT 1
+        FROM inserted
+        WHERE dateOfBirth > GETDATE()
+    )
+    BEGIN
+        RAISERROR('Date of birth cannot be in the future.', 16, 1)
+        ROLLBACK TRANSACTION
+        RETURN
+    END
+END;
+
+CREATE TRIGGER trgTeacherInfoDelete
+ON teacherInfo
+AFTER DELETE
+AS
+BEGIN
+    -- Log the deleted rows
+    INSERT INTO DeletedTeacherInfoLog (id, firstName, lastName, dateOfBirth, City, currentAddress, Gender, contactNo, dateOfJoining, currentPosition, employeeId)
+    SELECT id, firstName, lastName, dateOfBirth, City, currentAddress, Gender, contactNo, dateOfJoining, currentPosition, employeeId
+    FROM deleted;
+END;
+-- Teacher Attendance
+CREATE TRIGGER teacherAttendanceTrigger 
+ON TeacherAttendance 
+instead of  INSERT 
+AS
+BEGIN
+    DECLARE @insertedDate DATE;
+    DECLARE @insertEmployeeId INT;
+    
+    SELECT @insertEmployeeId = teacherId, @insertedDate = attendanceDate FROM inserted;
+    
+    IF EXISTS (
+        SELECT 1 
+        FROM TeacherAttendance 
+        WHERE teacherId = @insertEmployeeId 
+          AND attendanceDate = @insertedDate
+    )
+    BEGIN 
+        PRINT ('There is already an attendance record for that employee on that date');
+        RETURN;
+    END
+    ELSE
+    BEGIN
+       insert into TeacherAttendance (teacherId, attendanceDate , status) select teacherId, attendanceDate, status from inserted;
+	   return
+    END
+END;
+
+create trigger studentFeeInsertTrigger  on studentsFee
+instead of  insert
+as
+begin
+if exists (SELECT 1  FROM inserted i INNER JOIN studentInfo si ON CONCAT(si.studentFirstName, ' ', si.studentLastName) = i.studentName and i.studentClass = si.class 
+	and i.studentRollNo = si.rollNo )
+	begin
+		INSERT INTO studentsFee (studentRollNo, studentName, studentClass, fee) select studentRollNo , studentName, studentClass, fee from inserted
+		print ('Data is inserted');
+		return
+	end
+	else
+	begin
+		print ('Information is not matching up');
+		return;
+	end
+end;
+
+CREATE TRIGGER trgCalculateResult
+ON Result
+AFTER INSERT
+AS
+BEGIN
+    -- Update total marks and obtained marks for each inserted record
+    UPDATE r
+    SET totalMarks = COALESCE(i.subject1TotalMarks, 0) + COALESCE(i.subject2TotalMarks, 0) + COALESCE(i.subject3TotalMarks, 0) + COALESCE(i.subject4TotalMarks, 0) + COALESCE(i.subject5TotalMarks, 0)
+                    + COALESCE(i.subject6TotalMarks, 0) + COALESCE(i.subject7TotalMarks, 0) + COALESCE(i.subject8TotalMarks, 0) + COALESCE(i.subject9TotalMarks, 0) + COALESCE(i.subject10TotalMarks, 0),
+        obtainedMarks = COALESCE(i.subject1ObtainedMarks, 0) + COALESCE(i.subject2ObtainedMarks, 0) + COALESCE(i.subject3ObtainedMarks, 0) + COALESCE(i.subject4ObtainedMarks, 0) + COALESCE(i.subject5ObtainedMarks, 0)
+                        + COALESCE(i.subject6ObtainedMarks, 0) + COALESCE(i.subject7ObtainedMarks, 0) + COALESCE(i.subject8ObtainedMarks, 0) + COALESCE(i.subject9ObtainedMarks, 0) + COALESCE(i.subject10ObtainedMarks, 0)
+    FROM Result r
+    INNER JOIN inserted i ON r.resultId = i.resultId AND r.studentRollNo = i.studentRollNo AND r.studentClass = i.studentClass;
+
+    -- Update obtained percentage based on total marks and obtained marks
+    UPDATE r
+    SET obtainedPercentage = CASE 
+                                WHEN r.totalMarks = 0 THEN 0 -- Avoid division by zero
+                                ELSE (r.obtainedMarks * 100.0) / r.totalMarks 
+                             END
+    FROM Result r
+    INNER JOIN inserted i ON r.resultId = i.resultId AND r.studentRollNo = i.studentRollNo AND r.studentClass = i.studentClass;
+END;
+
+
+
+
+drop trigger trgCalculateResult
+-- Sample insertion for a student with two subjects
+INSERT INTO Result (resultId, studentRollNo, studentClass, subject1Name, subject1TotalMarks, subject1ObtainedMarks, subject2Name, subject2TotalMarks, subject2ObtainedMarks, testType)
+VALUES
+(
+    1, -- Result ID (assuming it's auto-generated)
+    91, -- Student Roll Number
+    '10th', -- Student Class
+    'Mathematics', -- Subject 1 Name
+    100, -- Subject 1 Total Marks
+    85, -- Subject 1 Obtained Marks
+    'Science', -- Subject 2 Name
+    100, -- Subject 2 Total Marks
+    90, -- Subject 2 Obtained Marks
+    'Midterm' -- Test Type
+);
+
+select *from Result
+delete from result;
+INSERT INTO studentsFee (studentRollNo, studentName, studentClass, fee) values (120, 'Waqar Khan', '11th', 6000);
+
+select *from studentsFee
+
+-- Trigger to update totalStudents when a new student is inserted
+CREATE TRIGGER trgIncrementTotalStudents
+ON studentInfo
+AFTER INSERT
+AS
+BEGIN
+    DECLARE @TotalStudentsCount INT;
+
+    -- Get the count of total students
+    SELECT @TotalStudentsCount = COUNT(*) FROM studentInfo;
+
+    -- Update totalStudents in the total table
+    UPDATE total
+    SET totalStudents = @TotalStudentsCount;
+END;
+
+-- Trigger to update totalSalary when a new salary record is inserted
+CREATE TRIGGER trgIncrementTotalSalary
+ON employeeSalary
+AFTER INSERT
+AS
+BEGIN
+    DECLARE @TotalSalary INT;
+
+    -- Get the sum of total salary
+    SELECT @TotalSalary = SUM(salary) FROM employeeSalary;
+
+    -- Update totalSalary in the total table
+    UPDATE total
+    SET totalSalary = @TotalSalary;
+END;
