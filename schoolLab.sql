@@ -1,5 +1,5 @@
 create database schoolLab
-create table studentInfo
+create table studentInfo --10
 (
 	id int identity(1,1) ,
 	studentFirstName varchar(30) not null ,
@@ -185,7 +185,6 @@ delete from recordsOfFee;
 
 
 
-drop table passwordLogin;
 insert into passwordLogin values ('riskofrain2','bandit','admin');
 
 select *from passwordLogin;
@@ -331,7 +330,7 @@ VALUES
 
 ------------------------------------------------------------------------------------------
 -- View
-CREATE VIEW StudentInfoView AS
+CREATE VIEW StudentInfoView AS --1
 SELECT 
     id,
     studentFirstName,
@@ -347,7 +346,7 @@ SELECT
     profession
 FROM studentInfo;
 
-CREATE VIEW TeacherInfoView AS
+CREATE VIEW TeacherInfoView AS --2
 SELECT 
     id,
     firstName,
@@ -360,7 +359,7 @@ SELECT
     employeeId
 FROM teacherInfo;
 
-CREATE VIEW TeacherAttendanceView AS
+CREATE VIEW TeacherAttendanceView AS --3
 SELECT 
     TA.teacherId AS Employee Id,
     TIV.firstName,
@@ -371,7 +370,7 @@ SELECT
 FROM TeacherAttendance AS TA
 JOIN TeacherInfoView AS TIV ON TA.teacherId = TIV.employeeId;
 
-create view studentFeeView as 
+create view studentFeeView as  --4
 select r.studentRollNo ,
 	   r.studentName,
 	   r.studentClass,
@@ -380,7 +379,8 @@ select r.studentRollNo ,
 	   r.paidOrNot
 from recordsOfFee r inner join studentsFee f on r.studentRollNo = f.studentRollNo and r.studentClass = f.studentClass;
 select *from studentFeeView
-create view employeeSalaryView as
+
+create view employeeSalaryView as --5
 select emp.employeeId,
 	   emp.salary,
 	   tiv.firstName,
@@ -392,7 +392,7 @@ from employeeSalary emp inner join teacherInfo tiv on emp.employeeId = tiv.emplo
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ----- Trigger
 
-CREATE TRIGGER trgStudentInfoInsert
+CREATE TRIGGER trgStudentInfoInsert --1
 ON studentInfo
 AFTER INSERT
 AS
@@ -409,7 +409,7 @@ BEGIN
     END
 END;
 
-CREATE TRIGGER trgStudentInfoUpdateDateOfBirth
+CREATE TRIGGER trgStudentInfoUpdateDateOfBirth --2
 ON studentInfo
 AFTER UPDATE
 AS
@@ -430,7 +430,7 @@ END;
 -----------------------------------------------------------------
 -- Employee Trigger
 
-CREATE TRIGGER trgTeacherInfoInsert
+CREATE TRIGGER trgTeacherInfoInsert --3
 ON teacherInfo
 after INSERT
 AS
@@ -448,7 +448,7 @@ BEGIN
     END
 END;
 
-CREATE TRIGGER trgTeacherInfoUpdate
+CREATE TRIGGER trgTeacherInfoUpdate --4
 ON teacherInfo
 after update
 AS
@@ -466,7 +466,7 @@ BEGIN
     END
 END;
 
-CREATE TRIGGER trgTeacherInfoDelete
+CREATE TRIGGER trgTeacherInfoDelete --5
 ON teacherInfo
 AFTER DELETE
 AS
@@ -476,8 +476,10 @@ BEGIN
     SELECT id, firstName, lastName, dateOfBirth, City, currentAddress, Gender, contactNo, dateOfJoining, currentPosition, employeeId
     FROM deleted;
 END;
+
+select *from deletedTeacherInfoLog;
 -- Teacher Attendance
-CREATE TRIGGER teacherAttendanceTrigger 
+CREATE TRIGGER teacherAttendanceTrigger  --6
 ON TeacherAttendance 
 instead of  INSERT 
 AS
@@ -504,7 +506,7 @@ BEGIN
     END
 END;
 
-create trigger studentFeeInsertTrigger  on studentsFee
+create trigger studentFeeInsertTrigger  on studentsFee --7
 instead of  insert
 as
 begin
@@ -522,7 +524,7 @@ if exists (SELECT 1  FROM inserted i INNER JOIN studentInfo si ON CONCAT(si.stud
 	end
 end;
 
-CREATE TRIGGER trgCalculateResult
+CREATE TRIGGER trgCalculateResult --8
 ON Result
 AFTER INSERT
 AS
@@ -573,7 +575,7 @@ INSERT INTO studentsFee (studentRollNo, studentName, studentClass, fee) values (
 select *from studentsFee
 
 -- Trigger to update totalStudents when a new student is inserted
-CREATE TRIGGER trgIncrementTotalStudents
+CREATE TRIGGER trgIncrementTotalStudents --9
 ON studentInfo
 AFTER INSERT
 AS
@@ -589,7 +591,7 @@ BEGIN
 END;
 
 -- Trigger to update totalSalary when a new salary record is inserted
-CREATE TRIGGER trgIncrementTotalSalary
+CREATE TRIGGER trgIncrementTotalSalary -- 10
 ON employeeSalary
 AFTER INSERT
 AS

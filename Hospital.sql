@@ -478,7 +478,7 @@ select *from employeeData where Salary > any
 (select salary from employeeData where salary>=5000);
 
 ------- Group By and Having By 
-------- Union and Intersection
+------- Union and Intersection     
 ------------------------------------------------------ Function and procedure -------------------------------------------------------
 
 -- Everything that has been created by CREATE command can only be drop by the DROP command and is edit by ALTER command
@@ -489,22 +489,39 @@ as  -- jahan pe (as) a jye wahan pe ap ki mrzi chlti he
 begin  --jb hm sub querey use krte he tb use krete hn
 return @num1 + @num2
 end
-
-
+	
 select dbo.functionSum(10,15) as result;
 
 
-create function showSalary (@id int)
-returns table
-as 
-return (select *from employeeData where id = @id);
+-- Define the function to return employee data based on ID
+CREATE FUNCTION showSalary (@id int)
+RETURNS TABLE
+AS 
+RETURN (
+    SELECT *
+    FROM employeeData
+    WHERE id = @id
+);
 
-  select *from  dbo.showSalary(1);
+-- Call the function and select data from it
+SELECT *
+FROM dbo.showSalary(1);
+
+-- Declare and use the variable
+-- Declare and use the variable
+DECLARE @xyz VARCHAR(50);
+DECLARE @testing VARCHAR(100); -- Declare the variable within the same batch
+SET @testing = (SELECT firstName FROM dbo.showSalary(1));
+
+-- Check if @testing is NULL and assign a value to @xyz accordingly
+IF @testing IS NULL
+    SET @xyz = 'unknown';
+ELSE
+    SET @xyz = @testing;
+
+PRINT 'Your position is ' + ISNULL(@xyz, 'unknown');
 
 
-  declare @xyz varchar(50)
-  select @xyz  = firstName from dbo.showSalary(1)
-  print 'your position is ' + @xyz
 
 
   ------------------------ Procedure --------------------------
